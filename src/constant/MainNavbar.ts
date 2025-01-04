@@ -1,5 +1,8 @@
 const mainNavbar = {
-  logo: '/images/logo.png',
+  logo: {
+    alt: 'research corridor',
+    src: '/images/vertical-logo.png',
+  },
   navItems: [
     {
       title: 'About',
@@ -26,10 +29,6 @@ const mainNavbar = {
       url: '/contact',
     },
   ],
-  button: {
-    title: 'Get Started',
-    url: '/get-started',
-  },
 };
 
 export default mainNavbar;

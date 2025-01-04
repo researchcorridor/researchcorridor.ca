@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  @apply font-sans;
+}
+
 ::-webkit-scrollbar {
   @apply h-auto w-2;
 }
