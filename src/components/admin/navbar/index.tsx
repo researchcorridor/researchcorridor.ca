@@ -1,11 +1,7 @@
-"use client"
+'use client';
 
 const Navbar = () => {
-    return (
-        <nav>
-            navbar
-        </nav>
-    )
-}
+  return <nav>navbar</nav>;
+};
 
 export default Navbar;

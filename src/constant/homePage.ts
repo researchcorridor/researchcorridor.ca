@@ -1,5 +1,4 @@
-
-export default {
+const home = {
   header: {
     title: 'Research Corridor',
     description:
@@ -52,3 +51,5 @@ export default {
     title: 'Stay Updated with Latest Research',
   },
 };
+
+export default home;

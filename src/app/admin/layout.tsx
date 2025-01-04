@@ -1,8 +1,9 @@
+import { Metadata } from 'next';
+import { PropsWithChildren } from 'react';
+
 import Navbar from '@/components/admin/navbar';
 import Sidebar from '@/components/admin/sidebar';
 import siteConfig from '@/constant/siteConfig';
-import { Metadata } from 'next';
-import { PropsWithChildren } from 'react';
 
 export const metadata: Metadata = {
   title: siteConfig.title(),

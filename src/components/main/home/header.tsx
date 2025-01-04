@@ -1,11 +1,7 @@
-"use client"
+'use client';
 
 const Header = () => {
-    return (
-        <header>
-            header
-        </header>
-    )
-}
+  return <header>header</header>;
+};
 
 export default Header;

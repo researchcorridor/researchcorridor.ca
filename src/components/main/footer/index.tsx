@@ -1,11 +1,7 @@
-"use client"
+'use client';
 
 const Footer = () => {
-    return (
-        <footer>
-            footer
-        </footer>
-    )
-}
+  return <footer>footer</footer>;
+};
 
 export default Footer;

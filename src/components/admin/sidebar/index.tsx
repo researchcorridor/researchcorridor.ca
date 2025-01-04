@@ -1,11 +1,7 @@
-"use client"
+'use client';
 
 const Sidebar = () => {
-    return (
-        <aside>
-            sidebar
-        </aside>
-    )
-}
+  return <aside>sidebar</aside>;
+};
 
 export default Sidebar;

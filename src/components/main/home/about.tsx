@@ -1,11 +1,7 @@
-"use client"
+'use client';
 
 const About = () => {
-    return (
-        <section id="about">
-            about
-        </section>
-    )
-}
+  return <section id="about">about</section>;
+};
 
 export default About;

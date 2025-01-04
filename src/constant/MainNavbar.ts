@@ -1,4 +1,4 @@
-export default {
+const mainNavbar = {
   logo: '/images/logo.png',
   navItems: [
     {
@@ -31,3 +31,5 @@ export default {
     url: '/get-started',
   },
 };
+
+export default mainNavbar;

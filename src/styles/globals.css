@@ -3,29 +3,29 @@
 @tailwind utilities;
 
 ::-webkit-scrollbar {
-    @apply h-auto w-2;
+  @apply h-auto w-2;
 }
 
 ::-webkit-scrollbar:horizontal {
-    @apply h-2 w-auto;
+  @apply h-2 w-auto;
 }
 
 ::-webkit-scrollbar-thumb {
-    @apply cursor-n-resize rounded-lg bg-primary/70;
+  @apply cursor-n-resize rounded-lg bg-primary/70;
 }
 
 ::-webkit-scrollbar-thumb:horizontal {
-    @apply cursor-e-resize;
+  @apply cursor-e-resize;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    @apply bg-primary;
+  @apply bg-primary;
 }
 
 ::-webkit-scrollbar-track {
-    @apply absolute bg-transparent;
+  @apply absolute bg-transparent;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }

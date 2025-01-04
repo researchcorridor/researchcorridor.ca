@@ -1,11 +1,7 @@
-"use client"
+'use client';
 
 const Collaboration = () => {
-    return (
-        <section id="collaboration">
-            collaboration
-        </section>
-    )
-}
+  return <section id="collaboration">collaboration</section>;
+};
 
 export default Collaboration;

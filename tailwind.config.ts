@@ -18,7 +18,7 @@ export default {
         primary: {
           DEFAULT: '#FF9595',
           foreground: '#ffffff',
-          50:  '#fff2f2',
+          50: '#fff2f2',
           100: '#ffe4e4',
           200: '#ffd7d7',
           300: '#ffc9c9',

@@ -1,11 +1,7 @@
-"use client"
+'use client';
 
 const Events = () => {
-    return (
-        <section id="events">
-            events
-        </section>
-    )
-}
+  return <section id="events">events</section>;
+};
 
 export default Events;

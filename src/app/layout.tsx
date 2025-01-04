@@ -1,10 +1,12 @@
-import siteConfig from '@/constant/siteConfig';
-import { fonts } from '@/lib/fonts';
-import { cn } from '@/lib/utils';
 import '@/styles/globals.css';
 
 import type { Metadata } from 'next';
 import { PropsWithChildren } from 'react';
+
+import siteConfig from '@/constant/siteConfig';
+import { fonts } from '@/lib/fonts';
+import { cn } from '@/lib/utils';
+
 import { Providers } from './providers';
 
 export const generateMetadata = (): Metadata => ({
@@ -57,7 +59,7 @@ export const generateMetadata = (): Metadata => ({
 const RootLayout = ({ children }: PropsWithChildren) => {
   return (
     <html lang="en">
-      <body className={cn('min-h-screen font-jacques-francois', fonts)}>
+      <body className={cn('font-jacques-francois min-h-screen', fonts)}>
         <Providers>{children}</Providers>
       </body>
     </html>
