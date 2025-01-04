@@ -1,12 +1,14 @@
 import '@/styles/globals.css';
 
 import type { Metadata } from 'next';
+import NextTopLoader from 'nextjs-toploader';
 import { PropsWithChildren } from 'react';
 
 import siteConfig from '@/constant/siteConfig';
 import { fonts } from '@/lib/fonts';
 import { cn } from '@/lib/utils';
 
+import tailwindConfig from '../../tailwind.config';
 import { Providers } from './providers';
 
 export const generateMetadata = (): Metadata => ({
@@ -60,6 +62,10 @@ const RootLayout = ({ children }: PropsWithChildren) => {
   return (
     <html lang="en">
       <body className={cn('font-jacques-francois min-h-screen', fonts)}>
+        <NextTopLoader
+          color={tailwindConfig.theme.extend.colors.primary.DEFAULT}
+          height={2}
+        />
         <Providers>{children}</Providers>
       </body>
     </html>
