@@ -11,7 +11,8 @@ import {
   NavbarMenuToggle,
 } from '@nextui-org/react';
 import Image from 'next/image';
-import { useState } from 'react';
+import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
 import { IoSearchSharp } from 'react-icons/io5';
 
 import mainNavbar from '@/constant/main-navbar';
@@ -19,14 +20,21 @@ import mainNavbar from '@/constant/main-navbar';
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [scrollPosition, setScrollPosition] = useState<number>(0);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [pathname]);
+
   return (
     <NavbarUI
       shouldHideOnScroll
       isBlurred={scrollPosition > 100}
       onScrollPositionChange={setScrollPosition}
       onMenuOpenChange={setIsMenuOpen}
+      isMenuOpen={isMenuOpen}
       maxWidth="xl"
-      className={`${scrollPosition > 100 ? '' : 'bg-transparent'} fixed`}
+      className={`${scrollPosition > 100 || isMenuOpen ? '' : 'bg-transparent'} fixed`}
     >
       <NavbarContent>
         <NavbarMenuToggle
@@ -49,7 +57,9 @@ const Navbar = () => {
             <Link
               color="foreground"
               href={item.url}
-              className="hover:text-primary px-1"
+              className={`hover:text-primary px-1 ${
+                pathname === item.url ? 'text-primary' : ''
+              }`}
             >
               {item.title}
             </Link>
@@ -72,7 +82,9 @@ const Navbar = () => {
             <Link
               color="foreground"
               href={item.url}
-              className="hover:text-primary px-1"
+              className={`hover:text-primary px-1 ${
+                pathname === item.url ? 'text-primary' : ''
+              }`}
             >
               {item.title}
             </Link>

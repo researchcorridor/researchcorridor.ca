@@ -5,24 +5,28 @@ const mainNavbar = {
   },
   navItems: [
     {
+      title: 'Home',
+      url: '/',
+    },
+    {
       title: 'About',
-      url: '#about',
+      url: '/about',
     },
     {
       title: 'Events',
-      url: '#events',
+      url: '/events',
     },
     {
       title: 'Collaboration',
-      url: '#collaboration',
+      url: '/collaboration',
     },
     {
       title: 'Journals',
-      url: '#journals',
+      url: '/journals',
     },
     {
       title: 'Researchers',
-      url: '#researchers',
+      url: '/researchers',
     },
     {
       title: 'Contact',
