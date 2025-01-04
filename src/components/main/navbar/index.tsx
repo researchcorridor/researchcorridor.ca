@@ -14,7 +14,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { IoSearchSharp } from 'react-icons/io5';
 
-import mainNavbar from '@/constant/mainNavbar';
+import mainNavbar from '@/constant/main-navbar';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
