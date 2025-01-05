@@ -1,3 +1,4 @@
+import getHomePageData from '@/actions/home-page.action';
 import {
   About,
   Collaboration,
@@ -9,8 +10,10 @@ import {
   Researchers,
   WhyChoose,
 } from '@/components/main/home';
+import HomePageType from '@/types/home-page.type';
 
-export default function LandingPage() {
+const LandingPage = async () => {
+  const data: HomePageType = await getHomePageData();
   return (
     <>
       <Header />
@@ -20,8 +23,10 @@ export default function LandingPage() {
       <Journals />
       <WhyChoose />
       <CTA />
-      <Researchers />
+      <Researchers data={data.researchers} />
       <Email />
     </>
   );
-}
+};
+
+export default LandingPage;

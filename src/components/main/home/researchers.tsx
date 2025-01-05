@@ -1,11 +1,8 @@
-import { getResearchers } from '@/actions/researchers.action';
 import ResearchersCarousel from '@/components/ui/researchers-carousel';
 import homeText from '@/constant/homePage';
 import ResearchersCardType from '@/types/researchers-card.type';
 
-const Researchers = async () => {
-  const data: ResearchersCardType[] = await getResearchers();
-
+const Researchers = async ({ data }: { data: ResearchersCardType[] }) => {
   return (
     <section id="researchers" className="py-20 max-sm:py-12">
       <div className="mx-auto max-w-7xl">
