@@ -43,6 +43,11 @@ const home = {
   },
   cta: {
     title: 'Contribute to Our Upcoming Edition',
+    description:
+      'We invite submissions for our upcoming editions across various disciplines. Share your research findings with our global academic community and contribute to advancing knowledge in your field.',
+    nextDate: 'Next Submission Deadline: ',
+    buttonText: ' Submit Your Paper',
+    buttonLink: '/submit-paper',
   },
   researchers: {
     title: 'What Researchers Say',

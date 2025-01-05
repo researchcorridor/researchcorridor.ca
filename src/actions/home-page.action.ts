@@ -4,6 +4,9 @@ import HomePageType from '@/types/home-page.type';
 
 const getHomePageData: () => Promise<HomePageType> = async () => {
   return {
+    cta: {
+      deadline: 'June 30, 2025',
+    },
     researchers: [
       {
         comment:
