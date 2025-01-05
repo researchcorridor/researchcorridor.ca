@@ -30,7 +30,12 @@ export default {
           900: '#de8282',
         },
       },
+      borderRadius: {
+        lg: 'var(--radius)',
+        md: 'calc(var(--radius) - 2px)',
+        sm: 'calc(var(--radius) - 4px)',
+      },
     },
   },
-  plugins: [nextui()],
+  plugins: [nextui(), require('tailwindcss-animate')],
 } satisfies Config;

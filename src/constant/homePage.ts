@@ -46,6 +46,8 @@ const home = {
   },
   researchers: {
     title: 'What Researchers Say',
+    description:
+      'Hear from leading researchers and contributors about their experience',
   },
   email: {
     title: 'Stay Updated with Latest Research',
