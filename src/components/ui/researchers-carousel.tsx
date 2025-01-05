@@ -190,7 +190,7 @@ Carousel.displayName = 'Carousel';
 const CarouselContent = ({ ...props }) => {
   const { carouselRef } = useCarousel();
   return (
-    <div ref={carouselRef} className="m-12 overflow-hidden">
+    <div ref={carouselRef} className="m-12 overflow-hidden max-[500px]:mx-2">
       <div className="-ml-4 flex" {...props} />
     </div>
   );
@@ -201,7 +201,7 @@ const CarouselItem = ({ ...props }) => {
     <div
       role="group"
       aria-roledescription="slide"
-      className="flex min-w-0 shrink-0 grow-0 basis-1/2 justify-center p-5"
+      className="flex min-w-0 shrink-0 grow-0 basis-1/2 justify-center p-5 max-[980px]:basis-full"
       {...props}
     />
   );
@@ -216,7 +216,7 @@ const CarouselButton = ({ type = 'next' }: { type: 'next' | 'Previous' }) => {
       isIconOnly
       onPress={next ? scrollNext : scrollPrev}
       className={cn(
-        'absolute top-[calc(50%-20px)]',
+        'absolute top-[calc(50%-20px)] max-[500px]:hidden',
         next ? 'right-1' : 'left-1',
       )}
     >
