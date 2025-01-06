@@ -1,5 +1,10 @@
 import { GoUnlock } from 'react-icons/go';
-import { PiGlobeSimpleLight, PiSealCheckLight } from 'react-icons/pi';
+import {
+  PiCompassDuotone,
+  PiGlobeSimpleLight,
+  PiSealCheckLight,
+} from 'react-icons/pi';
+import { RiFocus2Line } from 'react-icons/ri';
 import { TfiBolt } from 'react-icons/tfi';
 
 const home = {
@@ -10,29 +15,26 @@ const home = {
       'is a global platform fostering research collaboration and innovation across disciplines.',
   },
   about: {
-    points: [
+    point: [
       {
         title: 'Our Vision',
-        description:
-          'To create a global platform for research inspired by Islamic values and interdisciplinary innovation.',
+        icon: RiFocus2Line,
       },
       {
         title: 'Our Mission',
-        description:
-          'Facilitating high-quality research, fostering collaboration, and driving impactful solutions for global challenges.',
+        icon: PiCompassDuotone,
       },
     ],
-    buttons: [
-      {
-        title: 'View Latest Journals',
-        link: '#journals',
-      },
+    button: [
       {
         title: 'Explore Events',
-        link: '#events',
+        link: '/#events',
+      },
+      {
+        title: 'View Latest Journals',
+        link: '/#journals',
       },
     ],
-    image: '/images/about.png',
   },
   events: {
     title: 'Upcoming Events',

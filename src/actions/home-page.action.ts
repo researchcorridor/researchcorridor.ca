@@ -4,6 +4,13 @@ import { LandingPageType } from '@/app/(main)/page';
 
 const getHomePageData: () => Promise<LandingPageType> = async () => {
   return {
+    about: {
+      point: [
+        'To create a global platform for research inspired by Islamic values and interdisciplinary innovation.',
+        'Facilitating high-quality research, fostering collaboration, and driving impactful solutions for global challenges.',
+      ],
+      img: 'https://qhrlhzrjavgrczdonhra.supabase.co/storage/v1/object/public/general/about.png',
+    },
     cta: {
       deadline: 'June 30, 2025',
     },

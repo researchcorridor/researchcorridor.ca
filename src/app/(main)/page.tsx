@@ -16,6 +16,10 @@ import { JournalCardType } from '@/types/journal.type';
 import { ResearcherCardType } from '@/types/researcher.type';
 
 export type LandingPageType = {
+  about: {
+    point: string[];
+    img: string;
+  };
   events: EventCardType[];
   collaboration: CollaborationCardType[];
   journals: JournalCardType[];
@@ -28,7 +32,7 @@ const LandingPage = async () => {
   return (
     <>
       <Header />
-      <About />
+      <About {...data.about} />
       <Events data={data.events} />
       <Collaboration data={data.collaboration} />
       <Journals data={data.journals} />
