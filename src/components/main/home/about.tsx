@@ -18,13 +18,15 @@ const About = ({ point, img }: { point: string[]; img: string }) => {
         <div className="flex flex-col gap-10">
           {homeText.about.point.map((item, index) => (
             <div key={index}>
-              <h3 className="mb-3 flex items-center gap-3 text-2xl max-[500px]:text-xl">
+              <h3 className="text-foreground-800 mb-3 flex items-center gap-3 text-2xl max-[500px]:text-xl">
                 <span className="text-primary text-4xl max-[500px]:text-3xl">
                   <item.icon />
                 </span>
                 {item.title}
               </h3>
-              <p className="text-lg max-[500px]:text-base">{point[index]}</p>
+              <p className="text-foreground-600 text-lg max-[500px]:text-base">
+                {point[index]}
+              </p>
             </div>
           ))}
           <div className="flex gap-5 max-[820px]:justify-center max-[400px]:flex-col">
