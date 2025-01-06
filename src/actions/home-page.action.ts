@@ -59,6 +59,41 @@ const getHomePageData: () => Promise<HomePageType> = async () => {
         },
       },
     ],
+    journals: [
+      {
+        title:
+          'Journal of Islamic Studies is a multi-disciplinary publication dedicated',
+        description:
+          'The Journal of Islamic Studies is a multi-disciplinary publication dedicated to the scholarly study of all aspects of Islam and of the Islamic world.',
+        thumbnail: 'https://streamgo.events/assets/articles/7.png',
+        Category: 'Islamic Studies',
+        link: '#',
+      },
+      {
+        title: 'Journal of Islamic Studies',
+        description:
+          'The Journal of Islamic Studies is a multi-disciplinary publication dedicated to the scholarly study of all aspects of Islam and of the Islamic world.',
+        thumbnail: 'https://streamgo.events/assets/articles/7.png',
+        Category: 'Islamic Studies',
+        link: '#',
+      },
+      {
+        title: 'Journal of Islamic Studies',
+        description:
+          'The Journal of Islamic Studies is a multi-disciplinary publication dedicated to the scholarly study of all aspects of Islam and of the Islamic world.',
+        thumbnail: 'https://streamgo.events/assets/articles/7.png',
+        Category: 'Islamic Studies',
+        link: '#',
+      },
+      {
+        title: 'Journal of Islamic Studies',
+        description:
+          'The Journal of Islamic Studies is a multi-disciplinary publication dedicated to the scholarly study of all aspects of Islam and of the Islamic world.',
+        thumbnail: 'https://streamgo.events/assets/articles/7.png',
+        Category: 'Islamic Studies',
+        link: '#',
+      },
+    ],
   };
 };
 

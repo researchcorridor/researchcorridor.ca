@@ -41,6 +41,10 @@ const home = {
   },
   journals: {
     title: 'Featured Journals',
+    description:
+      'Discover our collection of peer-reviewed journals covering various disciplines',
+    buttonText: 'View All Journals',
+    cardButtonText: 'View Current Issue',
   },
   whyChoose: {
     title: 'Why Choose Research Corridor?',

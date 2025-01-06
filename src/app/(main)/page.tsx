@@ -20,7 +20,7 @@ const LandingPage = async () => {
       <About />
       <Events />
       <Collaboration />
-      <Journals />
+      <Journals data={data.journals} />
       <WhyChoose />
       <CTA data={data.cta} />
       <Researchers data={data.researchers} />
