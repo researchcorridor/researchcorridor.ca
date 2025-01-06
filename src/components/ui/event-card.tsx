@@ -52,7 +52,7 @@ const EventCard = ({ data }: { data: EventCardType }) => {
           className="gap-2"
           color="primary"
           as={Link}
-          href={link}
+          href={`/events/${link}`}
         >
           {homeText.events.cardButtonText}
           <FaArrowRightLong />

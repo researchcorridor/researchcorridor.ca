@@ -140,7 +140,7 @@ const getHomePageData: () => Promise<LandingPageType> = async () => {
         date: 'June 30, 2025',
         category: 'Islamic Studies',
         location: 'Lahore, Pakistan',
-        link: '#',
+        link: 'international-conference-on-islamic-studies',
       },
       {
         title: 'International Conference on Islamic Studies',
@@ -150,7 +150,7 @@ const getHomePageData: () => Promise<LandingPageType> = async () => {
         date: 'June 30, 2025',
         category: 'Islamic Studies',
         location: 'Lahore, Pakistan',
-        link: '#',
+        link: 'international-conference-on-islamic-studies',
       },
       {
         title: 'International Conference on Islamic Studies',
@@ -160,7 +160,7 @@ const getHomePageData: () => Promise<LandingPageType> = async () => {
         date: 'June 30, 2025',
         category: 'Islamic Studies',
         location: 'Lahore, Pakistan',
-        link: '#',
+        link: 'international-conference-on-islamic-studies',
       },
       {
         title: 'International Conference on Islamic Studies',
@@ -170,7 +170,7 @@ const getHomePageData: () => Promise<LandingPageType> = async () => {
         date: 'June 30, 2025',
         category: 'Islamic Studies',
         location: 'Lahore, Pakistan',
-        link: '#',
+        link: 'international-conference-on-islamic-studies',
       },
     ],
   };
