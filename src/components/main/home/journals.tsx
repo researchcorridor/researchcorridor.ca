@@ -1,5 +1,6 @@
 'use client';
 import { Button } from '@nextui-org/react';
+import Link from 'next/link';
 import { FaArrowRightLong } from 'react-icons/fa6';
 
 import JournalsCard from '@/components/ui/journals-card';
@@ -17,7 +18,13 @@ const Journals = ({ data }: { data: JournalCardType[] }) => {
           {homeText.journals.description}
         </p>
         <div className="m-5 flex justify-end">
-          <Button variant="light" className="gap-2" color="primary">
+          <Button
+            variant="light"
+            className="gap-2"
+            color="primary"
+            as={Link}
+            href="/journals"
+          >
             {homeText.journals.buttonText}
             <FaArrowRightLong />
           </Button>

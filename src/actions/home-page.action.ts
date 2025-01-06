@@ -67,7 +67,7 @@ const getHomePageData: () => Promise<LandingPageType> = async () => {
           'The Journal of Islamic Studies is a multi-disciplinary publication dedicated to the scholarly study of all aspects of Islam and of the Islamic world.',
         thumbnail: 'https://streamgo.events/assets/articles/7.png',
         Category: 'Islamic Studies',
-        link: '#',
+        link: 'journal-of-islamic-studies-is-a-multi-disciplinary-publication-dedicated',
       },
       {
         title: 'Journal of Islamic Studies',
@@ -75,7 +75,7 @@ const getHomePageData: () => Promise<LandingPageType> = async () => {
           'The Journal of Islamic Studies is a multi-disciplinary publication dedicated to the scholarly study of all aspects of Islam and of the Islamic world.',
         thumbnail: 'https://streamgo.events/assets/articles/7.png',
         Category: 'Islamic Studies',
-        link: '#',
+        link: 'journal-of-islamic-studies-is-a-multi-disciplinary-publication-dedicated',
       },
       {
         title: 'Journal of Islamic Studies',
@@ -83,7 +83,7 @@ const getHomePageData: () => Promise<LandingPageType> = async () => {
           'The Journal of Islamic Studies is a multi-disciplinary publication dedicated to the scholarly study of all aspects of Islam and of the Islamic world.',
         thumbnail: 'https://streamgo.events/assets/articles/7.png',
         Category: 'Islamic Studies',
-        link: '#',
+        link: 'journal-of-islamic-studies-is-a-multi-disciplinary-publication-dedicated',
       },
       {
         title: 'Journal of Islamic Studies',
@@ -91,7 +91,7 @@ const getHomePageData: () => Promise<LandingPageType> = async () => {
           'The Journal of Islamic Studies is a multi-disciplinary publication dedicated to the scholarly study of all aspects of Islam and of the Islamic world.',
         thumbnail: 'https://streamgo.events/assets/articles/7.png',
         Category: 'Islamic Studies',
-        link: '#',
+        link: 'journal-of-islamic-studies-is-a-multi-disciplinary-publication-dedicated',
       },
     ],
     collaboration: [

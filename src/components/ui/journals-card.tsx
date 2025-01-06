@@ -37,7 +37,7 @@ const JournalsCard = ({ data }: { data: JournalCardType }) => {
           className="gap-2"
           color="primary"
           as={Link}
-          href={link}
+          href={`/journals/${link}`}
         >
           <PiBookOpenTextThin />
           {homeText.journals.cardButtonText}
