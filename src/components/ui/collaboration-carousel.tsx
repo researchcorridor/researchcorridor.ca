@@ -5,7 +5,7 @@ import Autoplay from 'embla-carousel-autoplay';
 import Image from 'next/image';
 import * as React from 'react';
 
-import CollaborationCardType from '@/types/collaboration-card.type';
+import { CollaborationCardType } from '@/types/collaboration.type';
 
 import {
   Carousel,

@@ -4,7 +4,7 @@ import { FaArrowRightLong } from 'react-icons/fa6';
 
 import CollaborationCarousel from '@/components/ui/collaboration-carousel';
 import homeText from '@/constant/homePage';
-import CollaborationCardType from '@/types/collaboration-card.type';
+import { CollaborationCardType } from '@/types/collaboration.type';
 
 const Collaboration = ({ data }: { data: CollaborationCardType[] }) => {
   return (

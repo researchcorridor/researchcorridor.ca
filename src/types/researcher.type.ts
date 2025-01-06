@@ -1,4 +1,4 @@
-interface ResearchersCardType {
+export interface ResearcherCardType {
   comment: string;
   researcher: {
     name: string;
@@ -7,5 +7,3 @@ interface ResearchersCardType {
     from: string;
   };
 }
-
-export default ResearchersCardType;

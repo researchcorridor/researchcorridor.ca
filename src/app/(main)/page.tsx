@@ -10,10 +10,19 @@ import {
   Researchers,
   WhyChoose,
 } from '@/components/main/home';
-import HomePageType from '@/types/home-page.type';
+import { CollaborationCardType } from '@/types/collaboration.type';
+import { JournalCardType } from '@/types/journal.type';
+import { ResearcherCardType } from '@/types/researcher.type';
+
+export type LandingPageType = {
+  collaboration: CollaborationCardType[];
+  journals: JournalCardType[];
+  cta: { deadline: string };
+  researchers: ResearcherCardType[];
+};
 
 const LandingPage = async () => {
-  const data: HomePageType = await getHomePageData();
+  const data: LandingPageType = await getHomePageData();
   return (
     <>
       <Header />

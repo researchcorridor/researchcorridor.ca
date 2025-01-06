@@ -4,9 +4,9 @@ import { FaArrowRightLong } from 'react-icons/fa6';
 
 import JournalsCard from '@/components/ui/journals-card';
 import homeText from '@/constant/homePage';
-import JournalsCardType from '@/types/journals-card.type';
+import { JournalCardType } from '@/types/journal.type';
 
-const Journals = ({ data }: { data: JournalsCardType[] }) => {
+const Journals = ({ data }: { data: JournalCardType[] }) => {
   return (
     <section id="journals" className="bg-gray-50 py-32 max-md:py-20">
       <div className="mx-auto max-w-7xl">
@@ -23,7 +23,7 @@ const Journals = ({ data }: { data: JournalsCardType[] }) => {
           </Button>
         </div>
         <div className="grid grid-cols-4 gap-5 px-5 max-lg:grid-cols-2 max-sm:grid-cols-1 max-sm:px-2">
-          {data.map((item: JournalsCardType, index: number) => (
+          {data.map((item: JournalCardType, index: number) => (
             <JournalsCard key={index} data={item} />
           ))}
         </div>

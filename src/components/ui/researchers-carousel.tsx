@@ -5,7 +5,7 @@ import Autoplay from 'embla-carousel-autoplay';
 import Image from 'next/image';
 import * as React from 'react';
 
-import ResearchersCardType from '@/types/researchers-card.type';
+import { ResearcherCardType } from '@/types/researcher.type';
 
 import {
   Carousel,
@@ -14,7 +14,7 @@ import {
   CarouselItem,
 } from './carousel';
 
-const ResearchersCarousel = ({ data }: { data: ResearchersCardType[] }) => {
+const ResearchersCarousel = ({ data }: { data: ResearcherCardType[] }) => {
   return (
     <Carousel
       className="mt-20"

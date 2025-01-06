@@ -1,8 +1,8 @@
 'use server';
 
-import HomePageType from '@/types/home-page.type';
+import { LandingPageType } from '@/app/(main)/page';
 
-const getHomePageData: () => Promise<HomePageType> = async () => {
+const getHomePageData: () => Promise<LandingPageType> = async () => {
   return {
     cta: {
       deadline: 'June 30, 2025',

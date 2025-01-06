@@ -6,9 +6,9 @@ import Link from 'next/link';
 import { PiBookOpenTextThin } from 'react-icons/pi';
 
 import homeText from '@/constant/homePage';
-import JournalsCardType from '@/types/journals-card.type';
+import { JournalCardType } from '@/types/journal.type';
 
-const JournalsCard = ({ data }: { data: JournalsCardType }) => {
+const JournalsCard = ({ data }: { data: JournalCardType }) => {
   const { Category, description, link, thumbnail, title } = data;
   return (
     <Card shadow="sm" className="group">
