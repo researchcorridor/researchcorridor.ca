@@ -3,13 +3,15 @@
 import { Button, Card, CardBody, CardHeader } from '@nextui-org/react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { PiBookOpenTextThin } from 'react-icons/pi';
+import { FaArrowRightLong } from 'react-icons/fa6';
+import { PiCalendarDotsDuotone, PiMapPinLineDuotone } from 'react-icons/pi';
 
 import homeText from '@/constant/homePage';
-import { JournalCardType } from '@/types/journal.type';
+import { EventCardType } from '@/types/event.type';
 
-const JournalsCard = ({ data }: { data: JournalCardType }) => {
-  const { Category, description, link, thumbnail, title } = data;
+const EventCard = ({ data }: { data: EventCardType }) => {
+  const { category, description, link, thumbnail, title, date, location } =
+    data;
   return (
     <Card shadow="sm" className="group">
       <CardHeader className="relative aspect-video w-full overflow-hidden object-cover p-0">
@@ -21,16 +23,29 @@ const JournalsCard = ({ data }: { data: JournalCardType }) => {
           className="min-h-full min-w-full transition-transform group-hover:scale-110"
         />
         <Button
-          variant="light"
+          variant="flat"
           radius="full"
           size="sm"
-          className="absolute left-2 top-2 z-10 text-white"
+          color="primary"
+          className="absolute left-2 top-2 z-10"
         >
-          {Category}
+          {category}
         </Button>
       </CardHeader>
       <CardBody className="flex flex-col justify-between gap-3">
         <h3 className="text-foreground line-clamp-2  text-lg">{title}</h3>
+        <p className="text-foreground-500 flex items-center gap-3">
+          <span className="text-xl">
+            <PiCalendarDotsDuotone />
+          </span>
+          {date}
+        </p>
+        <p className="text-foreground-500 flex items-center gap-3">
+          <span className="text-xl">
+            <PiMapPinLineDuotone />
+          </span>
+          {location}
+        </p>
         <p className="text-foreground-500 line-clamp-2">{description}</p>
         <Button
           variant="light"
@@ -39,12 +54,12 @@ const JournalsCard = ({ data }: { data: JournalCardType }) => {
           as={Link}
           href={link}
         >
-          <PiBookOpenTextThin />
-          {homeText.journals.cardButtonText}
+          {homeText.events.cardButtonText}
+          <FaArrowRightLong />
         </Button>
       </CardBody>
     </Card>
   );
 };
 
-export default JournalsCard;
+export default EventCard;

@@ -131,6 +131,48 @@ const getHomePageData: () => Promise<LandingPageType> = async () => {
         link: '#',
       },
     ],
+    events: [
+      {
+        title: 'International Conference on Islamic Studies',
+        description:
+          'The International Conference on Islamic Studies is a multi-disciplinary conference dedicated to the scholarly study of all aspects of Islam and of the Islamic world.',
+        thumbnail: 'https://streamgo.events/assets/articles/7.png',
+        date: 'June 30, 2025',
+        category: 'Islamic Studies',
+        location: 'Lahore, Pakistan',
+        link: '#',
+      },
+      {
+        title: 'International Conference on Islamic Studies',
+        description:
+          'The International Conference on Islamic Studies is a multi-disciplinary conference dedicated to the scholarly study of all aspects of Islam and of the Islamic world.',
+        thumbnail: 'https://streamgo.events/assets/articles/7.png',
+        date: 'June 30, 2025',
+        category: 'Islamic Studies',
+        location: 'Lahore, Pakistan',
+        link: '#',
+      },
+      {
+        title: 'International Conference on Islamic Studies',
+        description:
+          'The International Conference on Islamic Studies is a multi-disciplinary conference dedicated to the scholarly study of all aspects of Islam and of the Islamic world.',
+        thumbnail: 'https://streamgo.events/assets/articles/7.png',
+        date: 'June 30, 2025',
+        category: 'Islamic Studies',
+        location: 'Lahore, Pakistan',
+        link: '#',
+      },
+      {
+        title: 'International Conference on Islamic Studies',
+        description:
+          'The International Conference on Islamic Studies is a multi-disciplinary conference dedicated to the scholarly study of all aspects of Islam and of the Islamic world.',
+        thumbnail: 'https://streamgo.events/assets/articles/7.png',
+        date: 'June 30, 2025',
+        category: 'Islamic Studies',
+        location: 'Lahore, Pakistan',
+        link: '#',
+      },
+    ],
   };
 };
 

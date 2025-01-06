@@ -11,10 +11,12 @@ import {
   WhyChoose,
 } from '@/components/main/home';
 import { CollaborationCardType } from '@/types/collaboration.type';
+import { EventCardType } from '@/types/event.type';
 import { JournalCardType } from '@/types/journal.type';
 import { ResearcherCardType } from '@/types/researcher.type';
 
 export type LandingPageType = {
+  events: EventCardType[];
   collaboration: CollaborationCardType[];
   journals: JournalCardType[];
   cta: { deadline: string };
@@ -27,7 +29,7 @@ const LandingPage = async () => {
     <>
       <Header />
       <About />
-      <Events />
+      <Events data={data.events} />
       <Collaboration data={data.collaboration} />
       <Journals data={data.journals} />
       <WhyChoose />
