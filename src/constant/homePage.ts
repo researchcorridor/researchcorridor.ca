@@ -4,6 +4,7 @@ import { TfiBolt } from 'react-icons/tfi';
 
 const home = {
   header: {
+    logo: '/images/logo.png',
     title: 'Research Corridor',
     description:
       'is a global platform fostering research collaboration and innovation across disciplines.',
