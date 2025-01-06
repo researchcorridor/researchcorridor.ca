@@ -9,10 +9,11 @@ import homeText from '@/constant/homePage';
 
 const About = ({ point, img }: { point: string[]; img: string }) => {
   return (
-    <section id="about" className="py-20">
+    <section id="about" className="relative py-20">
+      <div className="absolute inset-0 -z-20 bg-[url('/images/about-bg.png')] bg-cover bg-no-repeat opacity-10" />
       <div
-        className="m-auto grid max-w-7xl grid-cols-2 items-center  justify-center gap-5 px-6 max-lg:flex
-    max-[820px]:flex-col-reverse max-[820px]:gap-10 max-md:p-2"
+        className="m-auto grid max-w-7xl grid-cols-2  items-center justify-center gap-5
+    px-6 max-lg:flex max-[820px]:flex-col-reverse max-[820px]:gap-10 max-md:p-2"
       >
         <div className="flex flex-col gap-10">
           {homeText.about.point.map((item, index) => (
