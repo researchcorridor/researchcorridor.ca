@@ -37,7 +37,10 @@ const home = {
     title: 'Upcoming Events',
   },
   collaboration: {
-    title: 'In Collaboration With',
+    title: 'Collaboration With',
+    description:
+      'Working together with leading institutions to advance research and innovation',
+    buttonText: 'View All Partners',
   },
   journals: {
     title: 'Featured Journals',

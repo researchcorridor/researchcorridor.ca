@@ -12,7 +12,7 @@ const JournalsCard = ({ data }: { data: JournalsCardType }) => {
   const { Category, description, link, thumbnail, title } = data;
   return (
     <Card shadow="sm" className="group">
-      <CardHeader className="relative flex aspect-video w-full gap-5 overflow-hidden bg-black object-cover p-0">
+      <CardHeader className="relative aspect-video w-full overflow-hidden object-cover p-0">
         <Image
           src={thumbnail}
           alt={title}

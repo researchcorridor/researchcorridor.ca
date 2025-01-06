@@ -14,7 +14,7 @@ const getHomePageData: () => Promise<HomePageType> = async () => {
         researcher: {
           name: 'Dr. Sarah Ahmed',
           avatar: 'https://thispersondoesnotexist.com',
-          from: 'International Islamic University',
+          from: 'University of Management and Technology',
           position: 'Research Director',
         },
       },
@@ -24,7 +24,7 @@ const getHomePageData: () => Promise<HomePageType> = async () => {
         researcher: {
           name: 'Dr. Sarah Ahmed',
           avatar: 'https://thispersondoesnotexist.com',
-          from: 'International Islamic University',
+          from: 'University of Management and Technology',
           position: 'Research Director',
         },
       },
@@ -34,7 +34,7 @@ const getHomePageData: () => Promise<HomePageType> = async () => {
         researcher: {
           name: 'Dr. Sarah Ahmed',
           avatar: 'https://thispersondoesnotexist.com',
-          from: 'International Islamic University',
+          from: 'University of Management and Technology',
           position: 'Research Director',
         },
       },
@@ -44,7 +44,7 @@ const getHomePageData: () => Promise<HomePageType> = async () => {
         researcher: {
           name: 'Dr. Sarah Ahmed',
           avatar: 'https://thispersondoesnotexist.com',
-          from: 'International Islamic University',
+          from: 'University of Management and Technology',
           position: 'Research Director',
         },
       },
@@ -54,7 +54,7 @@ const getHomePageData: () => Promise<HomePageType> = async () => {
         researcher: {
           name: 'Dr. Sarah Ahmed',
           avatar: 'https://thispersondoesnotexist.com',
-          from: 'International Islamic University',
+          from: 'University of Management and Technology',
           position: 'Research Director',
         },
       },
@@ -91,6 +91,43 @@ const getHomePageData: () => Promise<HomePageType> = async () => {
           'The Journal of Islamic Studies is a multi-disciplinary publication dedicated to the scholarly study of all aspects of Islam and of the Islamic world.',
         thumbnail: 'https://streamgo.events/assets/articles/7.png',
         Category: 'Islamic Studies',
+        link: '#',
+      },
+    ],
+    collaboration: [
+      {
+        title: 'University of Management and Technology',
+        description: 'Leading research in Islamic studies and modern sciences',
+        thumbnail:
+          'https://www.edarabia.com/wp-content/uploads/2012/05/university-management-technology-lahore-pakistan.jpg',
+        link: '#',
+      },
+      {
+        title: 'University of Management and Technology',
+        description: 'Leading research in Islamic studies and modern sciences',
+        thumbnail:
+          'https://www.edarabia.com/wp-content/uploads/2012/05/university-management-technology-lahore-pakistan.jpg',
+        link: '#',
+      },
+      {
+        title: 'University of Management and Technology',
+        description: 'Leading research in Islamic studies and modern sciences',
+        thumbnail:
+          'https://www.edarabia.com/wp-content/uploads/2012/05/university-management-technology-lahore-pakistan.jpg',
+        link: '#',
+      },
+      {
+        title: 'University of Management and Technology',
+        description: 'Leading research in Islamic studies and modern sciences',
+        thumbnail:
+          'https://www.edarabia.com/wp-content/uploads/2012/05/university-management-technology-lahore-pakistan.jpg',
+        link: '#',
+      },
+      {
+        title: 'University of Management and Technology',
+        description: 'Leading research in Islamic studies and modern sciences',
+        thumbnail:
+          'https://www.edarabia.com/wp-content/uploads/2012/05/university-management-technology-lahore-pakistan.jpg',
         link: '#',
       },
     ],
