@@ -42,7 +42,7 @@ export default {
       themes: {
         light: {
           colors: {
-            background: '#fcfdff',
+            background: '#fbfcfc',
           },
         },
       },
