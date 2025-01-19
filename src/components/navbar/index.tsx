@@ -1,7 +1,6 @@
 'use client';
 
 import {
-  Button,
   cn,
   Link,
   Navbar as NavbarUI,
@@ -14,9 +13,10 @@ import {
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
-import { IoSearchSharp } from 'react-icons/io5';
 
 import { navbar as textData } from '@/constant/site-config.text';
+
+import SearchBox from './search';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -82,14 +82,7 @@ const Navbar = () => {
           </NavbarItem>
         ))}
         <NavbarItem>
-          <Button
-            color="primary"
-            variant="light"
-            isIconOnly
-            className="text-2xl max-sm:text-xl"
-          >
-            <IoSearchSharp />
-          </Button>
+          <SearchBox />
         </NavbarItem>
       </NavbarContent>
       <NavbarMenu className="gap-4 pt-10">

@@ -3,11 +3,14 @@ import { PropsWithChildren } from 'react';
 
 import Navbar from '@/components/navbar';
 import Sidebar from '@/components/sidebar';
-import siteConfig from '@/constant/site-config.text';
+import { meta } from '@/constant/site-config.text';
 
 export const metadata: Metadata = {
-  title: siteConfig.title(),
-  description: siteConfig.description(),
+  metadataBase: new URL(meta.url),
+  title: {
+    default: meta.title,
+    template: `%s | ${meta.title}`,
+  },
 };
 
 const AdminLayout = ({ children }: PropsWithChildren) => {
