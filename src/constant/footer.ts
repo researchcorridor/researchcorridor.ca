@@ -39,9 +39,9 @@ const footer = {
           url: '/events',
         },
         {
-          title: 'Collaboration',
+          title: 'Collaborations',
           icon: PiHandshakeDuotone,
-          url: '/collaboration',
+          url: '/collaborations',
         },
         {
           title: 'Journals',

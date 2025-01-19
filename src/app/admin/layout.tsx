@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
 import { PropsWithChildren } from 'react';
 
-import Navbar from '@/components/admin/navbar';
-import Sidebar from '@/components/admin/sidebar';
+import Navbar from '@/components/navbar';
+import Sidebar from '@/components/sidebar';
 import siteConfig from '@/constant/siteConfig';
 
 export const metadata: Metadata = {

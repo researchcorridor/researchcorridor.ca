@@ -1,9 +1,0 @@
-export { default as About } from './about';
-export { default as Collaboration } from './collaboration';
-export { default as CTA } from './cta';
-export { default as Email } from './email';
-export { default as Events } from './events';
-export { default as Header } from './header';
-export { default as Journals } from './journals';
-export { default as Researchers } from './researchers';
-export { default as WhyChoose } from './whyChoose';

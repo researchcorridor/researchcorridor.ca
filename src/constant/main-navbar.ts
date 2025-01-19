@@ -1,3 +1,12 @@
+import {
+  PiAddressBookDuotone,
+  PiCalendarCheckDuotone,
+  PiHandshakeDuotone,
+  PiInfoDuotone,
+  PiListMagnifyingGlassDuotone,
+  PiNewspaperDuotone,
+} from 'react-icons/pi';
+
 const mainNavbar = {
   logo: {
     alt: 'research corridor',
@@ -5,31 +14,33 @@ const mainNavbar = {
   },
   navItems: [
     {
-      title: 'Home',
-      url: '/',
-    },
-    {
       title: 'About',
+      icon: PiInfoDuotone,
       url: '/about',
     },
     {
       title: 'Events',
+      icon: PiCalendarCheckDuotone,
       url: '/events',
     },
     {
-      title: 'Collaboration',
-      url: '/collaboration',
+      title: 'Collaborations',
+      icon: PiHandshakeDuotone,
+      url: '/collaborations',
     },
     {
       title: 'Journals',
+      icon: PiNewspaperDuotone,
       url: '/journals',
     },
     {
       title: 'Researchers',
+      icon: PiListMagnifyingGlassDuotone,
       url: '/researchers',
     },
     {
       title: 'Contact',
+      icon: PiAddressBookDuotone,
       url: '/contact',
     },
   ],

@@ -1,6 +1,6 @@
 'use server';
 
-import { LandingPageType } from '@/app/(main)/page';
+import { LandingPageType } from '@/app/(root)/page';
 
 const getHomePageData: () => Promise<LandingPageType> = async () => {
   return {
