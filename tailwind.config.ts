@@ -37,5 +37,16 @@ export default {
       },
     },
   },
-  plugins: [nextui(), require('tailwindcss-animate')],
+  plugins: [
+    nextui({
+      themes: {
+        light: {
+          colors: {
+            background: '#fcfdff',
+          },
+        },
+      },
+    }),
+    require('tailwindcss-animate'),
+  ],
 } satisfies Config;

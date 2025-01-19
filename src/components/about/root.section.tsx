@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { FaArrowRightLong } from 'react-icons/fa6';
 
-import homeText from '@/constant/homePage';
+import { homeText } from '@/constant/about.text';
 
 export default function AboutRootSection({
   point,
@@ -15,14 +15,14 @@ export default function AboutRootSection({
   img: string;
 }) {
   return (
-    <section id="about" className="relative py-20">
+    <section id="about" className="relative bg-white py-20">
       <div className="absolute inset-0 -z-20 bg-[url('/images/about-bg.png')] bg-cover bg-no-repeat opacity-10" />
       <div
         className="m-auto grid max-w-7xl grid-cols-2  items-center justify-center gap-5
     px-6 max-lg:flex max-[820px]:flex-col-reverse max-[820px]:gap-10 max-md:p-2"
       >
         <div className="flex flex-col gap-10">
-          {homeText.about.point.map((item, index) => (
+          {homeText.point.map((item, index) => (
             <div key={index}>
               <h3 className="text-foreground-800 mb-3 flex items-center gap-3 text-2xl max-[500px]:text-xl">
                 <span className="text-primary text-4xl max-[500px]:text-3xl">
@@ -36,7 +36,7 @@ export default function AboutRootSection({
             </div>
           ))}
           <div className="flex gap-5 max-[820px]:justify-center max-[400px]:flex-col">
-            {homeText.about.button.map((btn, i) => (
+            {homeText.button.map((btn, i) => (
               <Button
                 key={i}
                 color="primary"

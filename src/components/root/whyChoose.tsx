@@ -1,15 +1,15 @@
 'use client';
-import homeText from '@/constant/homePage';
+import { whyChoose } from '@/constant/home.text';
 
 const WhyChoose = () => {
   return (
-    <section id="why-choose" className="py-20">
+    <section id="why-choose" className="bg-white py-20">
       <div className="mx-auto max-w-7xl p-6 max-[500px]:p-1">
         <h2 className="text-center text-4xl max-md:text-3xl max-sm:text-2xl">
-          {homeText.whyChoose.title}
+          {whyChoose.title}
         </h2>
         <div className="mt-20 grid grid-cols-4 gap-5 max-md:grid-cols-2 max-sm:mt-10 max-[500px]:gap-y-10">
-          {homeText.whyChoose.cards.map((item, index) => (
+          {whyChoose.cards.map((item, index) => (
             <div key={index} className="flex flex-col gap-3 max-[500px]:gap-2">
               <h3 className="flex justify-center text-center text-6xl max-[1000px]:text-5xl">
                 <item.icon />

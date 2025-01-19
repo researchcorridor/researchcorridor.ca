@@ -1,24 +1,24 @@
 import '@/styles/globals.css';
 
+import { cn } from '@nextui-org/react';
 import type { Metadata } from 'next';
 import NextTopLoader from 'nextjs-toploader';
 import { PropsWithChildren } from 'react';
 
-import siteConfig from '@/constant/siteConfig';
+import { meta } from '@/constant/site-config.text';
 import { fonts } from '@/lib/fonts';
-import { cn } from '@/lib/utils';
 
 import tailwindConfig from '../../tailwind.config';
 import { Providers } from './providers';
 
 export const generateMetadata = (): Metadata => ({
-  metadataBase: new URL(siteConfig.url()),
+  metadataBase: new URL(meta.url),
   title: {
-    default: siteConfig.title(),
-    template: `%s | ${siteConfig.title()}`,
+    default: meta.title,
+    template: `%s | ${meta.title}`,
   },
-  description: siteConfig.description(),
-  keywords: siteConfig.keywords(),
+  description: meta.description,
+  keywords: meta.keywords,
   robots: { index: true, follow: true },
   icons: {
     icon: [
@@ -43,17 +43,17 @@ export const generateMetadata = (): Metadata => ({
     // google: siteConfig.googleSiteVerificationId(),
   },
   openGraph: {
-    url: siteConfig.url(),
-    title: siteConfig.title(),
-    description: siteConfig.description(),
-    siteName: siteConfig.title(),
+    url: meta.url,
+    title: meta.title,
+    description: meta.description,
+    siteName: meta.title,
     images: '/opengraph-image.png',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: siteConfig.title(),
-    description: siteConfig.description(),
+    title: meta.title,
+    description: meta.description,
     images: '/opengraph-image.png',
   },
 });

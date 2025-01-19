@@ -3,7 +3,7 @@ import { Button } from '@nextui-org/react';
 import Link from 'next/link';
 import { FaArrowRightLong } from 'react-icons/fa6';
 
-import homeText from '@/constant/homePage';
+import { homeText } from '@/constant/collaboration.text';
 import { CollaborationCardType } from '@/types/collaboration.type';
 
 import CollaborationCarousel from './carousel';
@@ -14,13 +14,13 @@ export default function CollaborationsRootSection({
   data: CollaborationCardType[];
 }) {
   return (
-    <section id="collaboration" className="py-32 max-md:py-20">
+    <section id="collaboration" className="bg-white py-32 max-md:py-20">
       <div className="mx-auto max-w-7xl">
         <h2 className="px-6 text-center text-3xl max-md:text-2xl">
-          {homeText.collaboration.title}
+          {homeText.title}
         </h2>
         <p className="mx-auto mt-4 max-w-3xl px-6 text-center text-xl max-md:text-lg max-sm:text-base">
-          {homeText.collaboration.description}
+          {homeText.description}
         </p>
         <div className="m-5 flex justify-end">
           <Button
@@ -30,7 +30,7 @@ export default function CollaborationsRootSection({
             as={Link}
             href="/collaboration"
           >
-            {homeText.collaboration.buttonText}
+            {homeText.buttonText}
             <FaArrowRightLong />
           </Button>
         </div>

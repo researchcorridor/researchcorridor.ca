@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { PiBookOpenTextThin } from 'react-icons/pi';
 
-import homeText from '@/constant/homePage';
+import { homeText } from '@/constant/journals.text';
 import { JournalCardType } from '@/types/journal.type';
 
 export default function JournalsCard({ data }: { data: JournalCardType }) {
@@ -40,7 +40,7 @@ export default function JournalsCard({ data }: { data: JournalCardType }) {
           href={`/journals/${link}`}
         >
           <PiBookOpenTextThin />
-          {homeText.journals.cardButtonText}
+          {homeText.cardButtonText}
         </Button>
       </CardBody>
     </Card>

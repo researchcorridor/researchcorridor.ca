@@ -3,7 +3,7 @@ import { PropsWithChildren } from 'react';
 
 import Navbar from '@/components/navbar';
 import Sidebar from '@/components/sidebar';
-import siteConfig from '@/constant/siteConfig';
+import siteConfig from '@/constant/site-config.text';
 
 export const metadata: Metadata = {
   title: siteConfig.title(),

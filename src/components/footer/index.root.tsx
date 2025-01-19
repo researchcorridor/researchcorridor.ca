@@ -3,37 +3,37 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import footerText from '@/constant/footer';
+import { footer as TextData } from '@/constant/site-config.text';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900">
+    <footer>
       <div className="m-auto grid max-w-7xl grid-cols-3 justify-between gap-3 p-10 max-md:grid-cols-2 max-md:gap-10 max-sm:grid-cols-1">
         <div className="flex flex-col items-center gap-4 max-md:col-span-2 max-sm:col-span-1">
           <Image
-            src={footerText.logo}
-            alt={footerText.title}
+            src={TextData.logo}
+            alt={TextData.title}
             width={150}
             height={100}
             className="h-auto"
           />
-          <h2 className="text-center text-2xl text-white">
-            {footerText.title}
+          <h2 className="text-foreground-800 text-center text-2xl">
+            {TextData.title}
           </h2>
-          <p className="text-center text-base text-white">
-            {footerText.description}
+          <p className="text-foreground-800 text-center text-base">
+            {TextData.description}
           </p>
         </div>
         <div className="mt-5 flex justify-center gap-4">
-          {footerText.menus.map((menu, index) => (
+          {TextData.menus.map((menu, index) => (
             <div key={index} className="flex flex-col gap-4">
-              <h3 className="text-2xl text-white">{menu.title}</h3>
+              <h3 className="text-foreground-800 text-2xl">{menu.title}</h3>
               <div className="flex flex-col gap-3">
                 {menu.links.map((link, index) => (
                   <Link
                     key={index}
                     href={link.url}
-                    className="hover:text-primary flex items-center gap-3 text-base text-white  max-sm:justify-center"
+                    className="hover:text-primary text-foreground-800 flex items-center gap-3 text-base  max-sm:justify-center"
                   >
                     <link.icon />
                     {link.title}
@@ -45,15 +45,15 @@ const Footer = () => {
         </div>
         <div className="mt-5 flex justify-center gap-4">
           <div className="flex flex-col gap-4 max-sm:justify-center">
-            <h3 className="text-2xl text-white max-sm:text-center">
-              {footerText.contact.title}
+            <h3 className="text-foreground-800 text-2xl max-sm:text-center">
+              {TextData.contact.title}
             </h3>
             <div className="flex flex-col gap-3">
-              {footerText.contact.links.map((link, index) => (
+              {TextData.contact.links.map((link, index) => (
                 <Link
                   key={index}
                   href={link.url}
-                  className="hover:text-primary flex items-center gap-3 text-white  max-sm:justify-center"
+                  className="hover:text-primary text-foreground-800 flex items-center gap-3  max-sm:justify-center"
                 >
                   <link.icon />
                   {link.text}
@@ -61,11 +61,11 @@ const Footer = () => {
               ))}
             </div>
             <div className="flex justify-center gap-6 pt-4">
-              {footerText.contact.social.map((social, index) => (
+              {TextData.social.map((social, index) => (
                 <Link
                   key={index}
                   href={social.url}
-                  className="hover:text-primary text-3xl text-white"
+                  className="hover:text-primary text-foreground-700 text-3xl"
                 >
                   <social.icon />
                 </Link>
@@ -75,10 +75,10 @@ const Footer = () => {
         </div>
       </div>
       <div className="m-auto w-full max-w-7xl px-4">
-        <div className="h-px w-full bg-gray-700" />
+        <div className="bg-foreground-300 h-px w-full" />
       </div>
-      <p className="p-7 text-center text-white max-sm:text-xs">
-        {footerText.copyright}
+      <p className="text-foreground-800 p-7 text-center max-sm:text-xs">
+        {TextData.copyright}
       </p>
     </footer>
   );

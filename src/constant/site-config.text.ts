@@ -2,18 +2,65 @@ import { IoCallOutline } from 'react-icons/io5';
 import { LuFacebook, LuInstagram, LuLinkedin } from 'react-icons/lu';
 import { MdOutlineEmail } from 'react-icons/md';
 import {
-  PiAddressBookDuotone,
-  PiCalendarCheckDuotone,
-  PiHandshakeDuotone,
-  PiHouseLineDuotone,
-  PiInfoDuotone,
-  PiListMagnifyingGlassDuotone,
+  PiAddressBook,
+  PiCalendarCheck,
+  PiHandshake,
+  PiHouseLine,
+  PiInfo,
+  PiListMagnifyingGlass,
   PiMapPinAreaLight,
-  PiNewspaperDuotone,
+  PiNewspaper,
 } from 'react-icons/pi';
 import { RiTwitterXFill } from 'react-icons/ri';
 
-const footer = {
+export const meta = {
+  url: 'https://researchcorridor.org/',
+  title: 'Research Corridor',
+  description: 'Research Corridor',
+  keywords: ['Research Corridor'],
+  // googleSiteVerificationId: 'google-site-verification-id',
+};
+
+export const navbar = {
+  logo: {
+    alt: 'research corridor',
+    src: '/images/vertical-logo.png',
+  },
+  navItems: [
+    {
+      title: 'Events',
+      icon: PiCalendarCheck,
+      url: '/events',
+    },
+    {
+      title: 'Collaborations',
+      icon: PiHandshake,
+      url: '/collaborations',
+    },
+    {
+      title: 'Journals',
+      icon: PiNewspaper,
+      url: '/journals',
+    },
+    {
+      title: 'Researchers',
+      icon: PiListMagnifyingGlass,
+      url: '/researchers',
+    },
+    {
+      title: 'About',
+      icon: PiInfo,
+      url: '/about',
+    },
+    {
+      title: 'Contact',
+      icon: PiAddressBook,
+      url: '/contact',
+    },
+  ],
+};
+
+export const footer = {
   logo: '/images/logo.png',
   title: 'Research Corridor',
   description:
@@ -25,37 +72,37 @@ const footer = {
       links: [
         {
           title: 'Home',
-          icon: PiHouseLineDuotone,
+          icon: PiHouseLine,
           url: '/',
         },
         {
           title: 'About',
-          icon: PiInfoDuotone,
+          icon: PiInfo,
           url: '/about',
         },
         {
           title: 'Events',
-          icon: PiCalendarCheckDuotone,
+          icon: PiCalendarCheck,
           url: '/events',
         },
         {
           title: 'Collaborations',
-          icon: PiHandshakeDuotone,
+          icon: PiHandshake,
           url: '/collaborations',
         },
         {
           title: 'Journals',
-          icon: PiNewspaperDuotone,
+          icon: PiNewspaper,
           url: '/journals',
         },
         {
           title: 'Researchers',
-          icon: PiListMagnifyingGlassDuotone,
+          icon: PiListMagnifyingGlass,
           url: '/researchers',
         },
         {
           title: 'Contact',
-          icon: PiAddressBookDuotone,
+          icon: PiAddressBook,
           url: '/contact',
         },
       ],
@@ -83,29 +130,27 @@ const footer = {
         url: 'https://goo.gl/maps/1234ResearchCorridor',
       },
     ],
-    social: [
-      {
-        title: 'Facebook',
-        icon: LuFacebook,
-        url: 'https://www.facebook.com',
-      },
-      {
-        title: 'Twitter',
-        icon: RiTwitterXFill,
-        url: 'https://www.twitter.com',
-      },
-      {
-        title: 'LinkedIn',
-        icon: LuLinkedin,
-        url: 'https://www.linkedin.com',
-      },
-      {
-        title: 'Instagram',
-        icon: LuInstagram,
-        url: 'https://www.instagram.com',
-      },
-    ],
   },
+  social: [
+    {
+      title: 'Facebook',
+      icon: LuFacebook,
+      url: 'https://www.facebook.com',
+    },
+    {
+      title: 'Twitter',
+      icon: RiTwitterXFill,
+      url: 'https://www.twitter.com',
+    },
+    {
+      title: 'LinkedIn',
+      icon: LuLinkedin,
+      url: 'https://www.linkedin.com',
+    },
+    {
+      title: 'Instagram',
+      icon: LuInstagram,
+      url: 'https://www.instagram.com',
+    },
+  ],
 };
-
-export default footer;

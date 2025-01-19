@@ -2,21 +2,21 @@
 
 import { Button, Input } from '@nextui-org/react';
 
-import homeText from '@/constant/homePage';
+import { homeText } from '@/constant/subscriber';
 
 export default function SubscriberCard() {
   return (
     <section id="email" className="bg-primary py-20 text-white max-sm:py-12">
       <div className="mx-auto max-w-7xl p-6">
         <h2 className="text-5xl max-md:text-4xl max-sm:text-3xl">
-          {homeText.email.title}
+          {homeText.title}
         </h2>
         <p className="mt-4 max-w-3xl text-2xl max-sm:text-xl max-[500px]:text-lg">
-          {homeText.email.description}
+          {homeText.description}
         </p>
         <div className="mt-10 flex">
           <Input
-            label={homeText.email.inputText}
+            label={homeText.inputText}
             isClearable
             type="email"
             className="max-w-xl"
@@ -31,7 +31,7 @@ export default function SubscriberCard() {
             size="lg"
             className="rounded-none rounded-r-md border-white text-white"
           >
-            {homeText.email.buttonText}
+            {homeText.buttonText}
           </Button>
         </div>
       </div>

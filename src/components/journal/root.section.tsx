@@ -3,7 +3,7 @@ import { Button } from '@nextui-org/react';
 import Link from 'next/link';
 import { FaArrowRightLong } from 'react-icons/fa6';
 
-import homeText from '@/constant/homePage';
+import { homeText } from '@/constant/journals.text';
 import { JournalCardType } from '@/types/journal.type';
 
 import JournalsCard from './card';
@@ -14,13 +14,13 @@ export default function JournalsRootSection({
   data: JournalCardType[];
 }) {
   return (
-    <section id="journals" className="bg-gray-50 py-32 max-md:py-20">
+    <section id="journals" className="py-32 max-md:py-20">
       <div className="mx-auto max-w-7xl">
         <h2 className="px-6 text-center text-3xl max-md:text-2xl">
-          {homeText.journals.title}
+          {homeText.title}
         </h2>
         <p className="mx-auto mt-4 max-w-3xl px-6 text-center text-xl max-md:text-lg max-sm:text-base">
-          {homeText.journals.description}
+          {homeText.description}
         </p>
         <div className="m-5 flex justify-end">
           <Button
@@ -30,7 +30,7 @@ export default function JournalsRootSection({
             as={Link}
             href="/journals"
           >
-            {homeText.journals.buttonText}
+            {homeText.buttonText}
             <FaArrowRightLong />
           </Button>
         </div>

@@ -2,6 +2,7 @@
 
 import {
   Button,
+  cn,
   Link,
   Navbar as NavbarUI,
   NavbarBrand,
@@ -12,10 +13,10 @@ import {
 } from '@nextui-org/react';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { IoSearchSharp } from 'react-icons/io5';
 
-import mainNavbar from '@/constant/main-navbar';
+import { navbar as textData } from '@/constant/site-config.text';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -26,41 +27,56 @@ const Navbar = () => {
     setIsMenuOpen(false);
   }, [pathname]);
 
+  const firstRender = useRef(true);
+
+  useEffect(() => {
+    if (firstRender.current) {
+      setScrollPosition(document.documentElement.scrollTop);
+      firstRender.current = false;
+      return;
+    }
+  }, []);
+
   return (
     <NavbarUI
       shouldHideOnScroll
-      isBlurred={scrollPosition > 100}
+      isBlurred={scrollPosition > 100 || pathname !== '/'}
       onScrollPositionChange={setScrollPosition}
       onMenuOpenChange={setIsMenuOpen}
       isMenuOpen={isMenuOpen}
       maxWidth="xl"
-      className={`${scrollPosition > 100 || isMenuOpen ? '' : 'bg-transparent'} fixed`}
+      className={cn(
+        'fixed',
+        scrollPosition > 70 || isMenuOpen ? '' : 'bg-transparent',
+      )}
     >
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
-          className="hidden max-[800px]:flex"
+          className="hidden max-[940px]:flex"
         />
         <NavbarBrand as={Link} href="/">
           <Image
-            src={mainNavbar.logo.src}
-            alt={mainNavbar.logo.alt}
+            src={textData.logo.src}
+            alt={textData.logo.alt}
             width={140}
             height={50}
             className="cursor-pointer max-sm:w-28"
           />
         </NavbarBrand>
       </NavbarContent>
-      <NavbarContent className="flex gap-4" justify="center">
-        {mainNavbar.navItems.map((item, index) => (
-          <NavbarItem key={index} className="flex max-[800px]:hidden">
+      <NavbarContent className="flex gap-2" justify="center">
+        {textData.navItems.map((item, index) => (
+          <NavbarItem key={index} className="flex max-[940px]:hidden">
             <Link
               color="foreground"
               href={item.url}
-              className={`hover:text-primary px-1 ${
-                pathname === item.url ? 'text-primary' : ''
-              }`}
+              className={cn(
+                'hover:text-primary items-center gap-1 px-1',
+                pathname === item.url ? 'text-primary' : '',
+              )}
             >
+              <item.icon className="text-xl" />
               {item.title}
             </Link>
           </NavbarItem>
@@ -77,15 +93,17 @@ const Navbar = () => {
         </NavbarItem>
       </NavbarContent>
       <NavbarMenu className="gap-4 pt-10">
-        {mainNavbar.navItems.map((item, index) => (
+        {textData.navItems.map((item, index) => (
           <NavbarItem key={index}>
             <Link
               color="foreground"
               href={item.url}
-              className={`hover:text-primary px-1 ${
-                pathname === item.url ? 'text-primary' : ''
-              }`}
+              className={cn(
+                'hover:text-primary items-center gap-2 px-1',
+                pathname === item.url ? 'text-primary' : '',
+              )}
             >
+              <item.icon className="text-xl" />
               {item.title}
             </Link>
           </NavbarItem>

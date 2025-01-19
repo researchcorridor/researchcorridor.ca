@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { FaArrowRightLong } from 'react-icons/fa6';
 import { PiCalendarDotsDuotone, PiMapPinLineDuotone } from 'react-icons/pi';
 
-import homeText from '@/constant/homePage';
+import { homeText } from '@/constant/events.text';
 import { EventCardType } from '@/types/event.type';
 
 export default function EventCard({ data }: { data: EventCardType }) {
@@ -54,7 +54,7 @@ export default function EventCard({ data }: { data: EventCardType }) {
           as={Link}
           href={`/events/${link}`}
         >
-          {homeText.events.cardButtonText}
+          {homeText.cardButtonText}
           <FaArrowRightLong />
         </Button>
       </CardBody>
