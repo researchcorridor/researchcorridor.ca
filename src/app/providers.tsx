@@ -4,6 +4,7 @@ import { NextUIProvider } from '@nextui-org/react';
 import { useRouter } from 'next/navigation';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import NextTopLoader from 'nextjs-toploader';
+import { Suspense } from 'react';
 
 import { RrfProvider } from '@/context/ref';
 
@@ -18,7 +19,9 @@ export function Providers({ children }: { children: React.ReactNode }) {
           color={tailwindConfig.theme.extend.colors.primary.DEFAULT}
           height={2}
         />
-        <RrfProvider>{children}</RrfProvider>
+        <RrfProvider>
+          <Suspense>{children}</Suspense>
+        </RrfProvider>
       </NextThemesProvider>
     </NextUIProvider>
   );

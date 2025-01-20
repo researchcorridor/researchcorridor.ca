@@ -1,10 +1,11 @@
 'use client';
 
-import { Button } from '@nextui-org/react';
 import Image from 'next/image';
 import Link from 'next/link';
 
 import { event } from '@/constant/home.text';
+
+import { PulsatingButton } from '../ui/pulsating-button';
 
 export default function EventHeader() {
   return (
@@ -22,17 +23,16 @@ export default function EventHeader() {
         <p className="mx-auto text-center  text-xl max-sm:text-base">
           {event.description}
         </p>
-        <div className=" mt-2 flex justify-center">
-          <Button
+        <div className=" mt-2 flex justify-center pt-5">
+          <PulsatingButton
             as={Link}
             href={event.buttonLink}
             variant="shadow"
             color="primary"
-            className="mt-5"
             size="lg"
           >
             {event.buttonText}
-          </Button>
+          </PulsatingButton>
         </div>
       </div>
       <div className="flex size-full items-center justify-center">
