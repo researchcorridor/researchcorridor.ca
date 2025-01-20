@@ -51,7 +51,9 @@ const CollaborationCarousel = ({ data }: { data: CollaborationCardType[] }) => {
                   />
                 </CardHeader>
                 <h3 className="text-center text-xl">{title}</h3>
-                <p className="text-default-500 text-center">{description}</p>
+                {description && (
+                  <p className="text-default-500 text-center">{description}</p>
+                )}
               </CardBody>
             </Card>
           </CarouselItem>
