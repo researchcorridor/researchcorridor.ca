@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { FaArrowRightLong } from 'react-icons/fa6';
 
 import { homeText } from '@/constant/about.text';
+import useRefContext from '@/context/ref';
 
 export default function AboutRootSection({
   point,
@@ -14,8 +15,9 @@ export default function AboutRootSection({
   point: string[];
   img: string;
 }) {
+  const { aboutRef } = useRefContext();
   return (
-    <section id="about" className="relative bg-white py-20">
+    <section ref={aboutRef} id="about" className="relative bg-white py-20">
       <div className="absolute inset-0 -z-20 bg-[url('/images/about-bg.png')] bg-cover bg-no-repeat opacity-10" />
       <div
         className="m-auto grid max-w-7xl grid-cols-2  items-center justify-center gap-5

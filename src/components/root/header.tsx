@@ -5,14 +5,16 @@ import 'swiper/css';
 import 'swiper/css/effect-flip';
 
 import { Button } from '@nextui-org/react';
-import Link from 'next/link';
 import { IoMdArrowDropdown } from 'react-icons/io';
 import { Autoplay, EffectFlip } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
+import useRefContext, { scrollIntoView } from '@/context/ref';
+
 import BrandHeader from './brand';
 
 export default function RoodHeader() {
+  const { aboutRef } = useRefContext();
   const Slides = [BrandHeader, BrandHeader];
   return (
     <header className="relative z-0 overflow-hidden">
@@ -43,8 +45,7 @@ export default function RoodHeader() {
         variant="light"
         size="lg"
         isIconOnly
-        as={Link}
-        href="#about"
+        onPress={() => scrollIntoView(aboutRef)}
         className="absolute bottom-5 left-1/2 z-[999] -translate-x-1/2 text-4xl"
       >
         <IoMdArrowDropdown />
