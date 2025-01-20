@@ -12,10 +12,11 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import useRefContext, { scrollIntoView } from '@/context/ref';
 
 import BrandHeader from './brand';
+import EventHeader from './event';
 
 export default function RoodHeader() {
   const { aboutRef } = useRefContext();
-  const Slides = [BrandHeader, BrandHeader];
+  const Slides = [BrandHeader, EventHeader];
   return (
     <header className="relative z-0 overflow-hidden">
       <div className="absolute inset-0 -z-20 bg-[url('/images/bg.png')] bg-fixed bg-center" />
@@ -27,10 +28,10 @@ export default function RoodHeader() {
         modules={[EffectFlip, Autoplay]}
         className="mx-auto max-w-7xl"
         wrapperClass="m-auto"
-        // autoplay={{
-        //   delay: 2000,
-        //   disableOnInteraction: false,
-        // }}
+        autoplay={{
+          delay: 2000,
+          disableOnInteraction: false,
+        }}
       >
         {Slides.map((Slide, index) => (
           <SwiperSlide
