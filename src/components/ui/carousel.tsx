@@ -1,13 +1,11 @@
 'use client';
 
-import { Button } from '@nextui-org/react';
+import { Button, cn } from '@nextui-org/react';
 import useEmblaCarousel, {
   type UseEmblaCarouselType,
 } from 'embla-carousel-react';
 import * as React from 'react';
 import { GrNext, GrPrevious } from 'react-icons/gr';
-
-import { cn } from '@/lib/utils';
 
 type CarouselApi = UseEmblaCarouselType[1];
 type UseCarouselParameters = Parameters<typeof useEmblaCarousel>;
