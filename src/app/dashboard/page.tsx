@@ -1,7 +1,7 @@
 export default function Page() {
   return (
     <>
-      <h1>Admin</h1>
+      <h1>dashboard</h1>
     </>
   );
 }
