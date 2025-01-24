@@ -19,9 +19,11 @@ export function Providers({ children }: { children: React.ReactNode }) {
           color={tailwindConfig.theme.extend.colors.primary.DEFAULT}
           height={2}
         />
-        <RrfProvider>
-          <Suspense>{children}</Suspense>
-        </RrfProvider>
+        <Suspense>
+          <RrfProvider>
+            <>{children}</>
+          </RrfProvider>
+        </Suspense>
       </NextThemesProvider>
     </NextUIProvider>
   );

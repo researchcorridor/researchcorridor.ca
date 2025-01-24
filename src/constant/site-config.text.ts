@@ -15,6 +15,7 @@ import { RiTwitterXFill } from 'react-icons/ri';
 
 export const meta = {
   url: 'https://researchcorridor.org/',
+  dashboardURL: 'https://researchcorridor.org/dashboard',
   title: 'Research Corridor',
   description: 'Research Corridor',
   keywords: ['Research Corridor'],
@@ -51,6 +52,46 @@ export const navbar = {
       title: 'About',
       icon: PiInfo,
       url: '/about',
+    },
+    {
+      title: 'Contact',
+      icon: PiAddressBook,
+      url: '/contact',
+    },
+  ],
+};
+
+export const dashboardNavbar = {
+  logo: '/images/logo.png',
+  title: 'Research Corridor',
+};
+
+export const dashboardSidebar = {
+  menu: [
+    {
+      title: 'Dashboard',
+      icon: PiHouseLine,
+      url: '/',
+    },
+    {
+      title: 'Events',
+      icon: PiCalendarCheck,
+      url: '/events',
+    },
+    {
+      title: 'Collaborations',
+      icon: PiHandshake,
+      url: '/collaborations',
+    },
+    {
+      title: 'Journals',
+      icon: PiNewspaper,
+      url: '/journals',
+    },
+    {
+      title: 'Researchers',
+      icon: PiListMagnifyingGlass,
+      url: '/researchers',
     },
     {
       title: 'Contact',

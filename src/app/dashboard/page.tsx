@@ -1,7 +1,9 @@
-export default function Page() {
+import ComingSoon from '@/components/ui/coming-soon';
+
+export default function DashboardPage() {
   return (
     <>
-      <h1>dashboard</h1>
+      <ComingSoon page="dashboard" home={false} />
     </>
   );
 }
