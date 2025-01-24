@@ -24,5 +24,15 @@ export const userLogin = async (
     return { error: 'Invalid email or password', redirect: '' };
   }
 };
+
+export const userLogout = async (): Promise<string | void> => {
+  const supabase = await createClient();
+  try {
+    const { error } = await supabase.auth.signOut();
+    if (error) throw error;
+  } catch {
+    throw 'Failed to logout';
+  } finally {
+    return '/login';
   }
 };
