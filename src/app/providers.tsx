@@ -1,9 +1,9 @@
 'use client';
 
 import { NextUIProvider } from '@nextui-org/react';
-import { useRouter } from 'next/navigation';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import NextTopLoader from 'nextjs-toploader';
+import { useRouter } from 'nextjs-toploader/app';
 import { Suspense } from 'react';
 
 import { RrfProvider } from '@/context/ref';

@@ -5,7 +5,10 @@ import { createClient } from '@/utils/supabase/server';
 export const userLogin = async (
   email: string,
   password: string,
-): Promise<string | void> => {
+): Promise<{
+  error: string;
+  redirect: string;
+}> => {
   try {
     const supabase = await createClient();
 
@@ -15,9 +18,11 @@ export const userLogin = async (
     });
 
     if (error) throw error;
-    return '/dashboard';
+    return { error: '', redirect: '/dashboard' };
   } catch (error) {
     console.log('error', error);
-    throw 'Invalid email or password';
+    return { error: 'Invalid email or password', redirect: '' };
+  }
+};
   }
 };

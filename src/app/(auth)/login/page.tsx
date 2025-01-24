@@ -25,16 +25,13 @@ export default function LoginPage({ className }: { className: string }) {
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError(null);
-    try {
-      setLoading(true);
-      const redirectUrl = await userLogin(email, password);
-      if (redirectUrl) {
-        router.push(redirectUrl);
-      }
-    } catch {
-      setError('Invalid email or password');
-    } finally {
+    setLoading(true);
+    const res = await userLogin(email, password);
+    if (res.error) {
       setLoading(false);
+      setError(res.error);
+    } else {
+      router.push(res.redirect);
     }
   };
 
@@ -62,7 +59,6 @@ export default function LoginPage({ className }: { className: string }) {
         onChange={(e) => setEmail(e.target.value)}
         value={email}
         labelPlacement="outside"
-        errorMessage="Please enter a valid email"
         placeholder="Enter your valid email"
         name="email"
         label="Email"
@@ -79,9 +75,10 @@ export default function LoginPage({ className }: { className: string }) {
         onChange={(e) => setPassword(e.target.value)}
         value={password}
         labelPlacement="outside"
-        errorMessage="Please enter a your password"
         name="password"
         label="Password"
+        minLength={6}
+        maxLength={100}
         placeholder="Enter your password"
         size="lg"
         endContent={
@@ -104,7 +101,7 @@ export default function LoginPage({ className }: { className: string }) {
         }
         type={isVisible ? 'text' : 'password'}
       />
-      <div className="flex w-full justify-end">
+      {/* <div className="flex w-full justify-end">
         <Button
           variant="light"
           color="primary"
@@ -114,7 +111,7 @@ export default function LoginPage({ className }: { className: string }) {
         >
           Forgot password?
         </Button>
-      </div>
+      </div> */}
       <Button
         isLoading={loading}
         fullWidth
