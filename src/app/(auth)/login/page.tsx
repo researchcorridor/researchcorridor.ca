@@ -14,7 +14,7 @@ import {
 import { userLogin } from '@/actions/auth.action';
 import { login as textData } from '@/constant/auth.text';
 
-export default function LoginPage({ className }: { className: string }) {
+export default function LoginPage() {
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const [email, setEmail] = useState<string>('');
@@ -37,10 +37,7 @@ export default function LoginPage({ className }: { className: string }) {
 
   return (
     <Form
-      className={cn(
-        'm-auto mt-10 flex w-full max-w-sm flex-col gap-4 rounded-xl p-5 shadow-2xl backdrop-blur-lg max-md:max-w-2xl',
-        className,
-      )}
+      className="m-auto mt-10 flex w-full max-w-sm flex-col gap-4 rounded-xl p-5 shadow-2xl backdrop-blur-lg max-md:max-w-2xl"
       validationBehavior="native"
       onSubmit={handleLogin}
     >
