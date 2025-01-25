@@ -7,10 +7,14 @@ import { FaArrowRightLong } from 'react-icons/fa6';
 import { CTAText } from '@/constant/journals.text';
 
 export default function CTAJournalSubmit({
-  data,
+  data: { show = false, deadline = '' },
 }: {
-  data: { deadline: string };
+  data: {
+    show: boolean;
+    deadline: string;
+  };
 }) {
+  if (!show) return null;
   return (
     <section id="cta" className="relative z-0 py-10 text-white max-sm:py-12">
       <div className="absolute inset-0 -z-20 bg-[url('/images/bg.png')] bg-fixed bg-center" />
@@ -24,7 +28,7 @@ export default function CTAJournalSubmit({
         </p>
         <div className="mt-10 flex items-center justify-between gap-5 max-sm:flex-col max-sm:items-center">
           <p className="max-w-xl text-lg max-sm:text-base">
-            {CTAText.nextDate} {data.deadline}
+            {CTAText.nextDate} {deadline}
           </p>
           <Button
             as={Link}

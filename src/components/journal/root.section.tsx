@@ -4,17 +4,23 @@ import Link from 'next/link';
 import { FaArrowRightLong } from 'react-icons/fa6';
 
 import { homeText } from '@/constant/journals.text';
+import useRefContext from '@/context/ref';
 import { JournalCardType } from '@/types/journal.type';
 
 import JournalsCard from './card';
 
 export default function JournalsRootSection({
-  data,
+  data: { show = false, data = [] },
 }: {
-  data: JournalCardType[];
+  data: {
+    show: boolean;
+    data: JournalCardType[];
+  };
 }) {
+  const { journalsRef } = useRefContext();
+  if (!show) return null;
   return (
-    <section id="journals" className="py-32 max-md:py-20">
+    <section ref={journalsRef} id="journals" className="py-32 max-md:py-20">
       <div className="mx-auto max-w-7xl">
         <h2 className="px-6 text-center text-3xl max-md:text-2xl">
           {homeText.title}

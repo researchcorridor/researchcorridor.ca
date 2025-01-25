@@ -2,25 +2,60 @@
 
 import { Button } from '@nextui-org/react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { FaArrowRightLong } from 'react-icons/fa6';
+import { PiCompassDuotone } from 'react-icons/pi';
+import { RiFocus2Line } from 'react-icons/ri';
 
-import { homeText } from '@/constant/about.text';
-import useRefContext from '@/context/ref';
+import useRefContext, { scrollIntoView } from '@/context/ref';
 
 export default function AboutRootSection({
-  point,
-  img,
+  data: {
+    show = false,
+    data = {
+      point: [],
+      img: '',
+    },
+  },
 }: {
-  point: string[];
-  img: string;
+  data: {
+    show: boolean;
+    data: {
+      point: string[];
+      img: string;
+    };
+  };
 }) {
-  const { aboutRef } = useRefContext();
+  const { aboutRef, researchersRef, journalsRef } = useRefContext();
+  if (!show) return null;
+  const { point, img } = data;
+
+  const homeText = {
+    point: [
+      {
+        title: 'Our Vision',
+        icon: RiFocus2Line,
+      },
+      {
+        title: 'Our Mission',
+        icon: PiCompassDuotone,
+      },
+    ],
+    button: [
+      {
+        title: 'Our Researchers',
+        scrollFun: () => scrollIntoView(researchersRef),
+      },
+      {
+        title: 'View Latest Journals',
+        scrollFun: () => scrollIntoView(journalsRef),
+      },
+    ],
+  };
   return (
-    <section ref={aboutRef} id="about" className="relative bg-white py-20">
+    <section ref={aboutRef} id="about" className="relative py-20">
       <div className="absolute inset-0 -z-20 bg-[url('/images/about-bg.png')] bg-cover bg-no-repeat opacity-10" />
       <div
-        className="m-auto grid max-w-7xl grid-cols-2  items-center justify-center gap-5
+        className="m-auto grid max-w-7xl grid-cols-[70%,30%]  items-center justify-center gap-5
     px-6 max-lg:flex max-[820px]:flex-col-reverse max-[820px]:gap-10 max-md:p-2"
       >
         <div className="flex flex-col gap-10">
@@ -42,9 +77,8 @@ export default function AboutRootSection({
               <Button
                 key={i}
                 color="primary"
-                variant={i === 0 ? 'solid' : 'bordered'}
-                as={Link}
-                href={btn.link}
+                variant={i === 0 ? 'solid' : 'ghost'}
+                onPress={btn.scrollFun}
               >
                 {btn.title}
                 <FaArrowRightLong />
@@ -53,13 +87,13 @@ export default function AboutRootSection({
           </div>
         </div>
         <div className="flex items-center justify-center">
-          <div className="flex aspect-square w-96 items-center justify-center max-[500px]:w-full">
+          <div className="flex aspect-square w-96 items-center justify-center max-[300px]:w-full">
             <Image
               src={img}
               alt="about"
-              width={500}
-              height={500}
-              className="min-h-full min-w-full object-cover"
+              width={300}
+              height={300}
+              className="object-cover"
             />
           </div>
         </div>

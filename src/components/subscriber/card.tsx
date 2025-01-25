@@ -4,7 +4,14 @@ import { Button, Input } from '@nextui-org/react';
 
 import { homeText } from '@/constant/subscriber';
 
-export default function SubscriberCard() {
+export default function SubscriberCard({
+  data: { show = false },
+}: {
+  data: {
+    show: boolean;
+  };
+}) {
+  if (!show) return null;
   return (
     <section id="email" className="bg-primary py-20 text-white max-sm:py-12">
       <div className="mx-auto max-w-7xl p-6">

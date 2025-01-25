@@ -1,15 +1,27 @@
+'use client';
+
 import { homeText } from '@/constant/researchers';
+import useRefContext from '@/context/ref';
 import { ResearcherCardType } from '@/types/researcher.type';
 
 import ResearchersCarousel from './carousel';
 
 export default function ResearchersRootSection({
-  data,
+  data: { show = false, data = [] },
 }: {
-  data: ResearcherCardType[];
+  data: {
+    show: boolean;
+    data: ResearcherCardType[];
+  };
 }) {
+  const { researchersRef } = useRefContext();
+  if (!show) return null;
   return (
-    <section id="researchers" className="bg-white py-20 max-sm:py-12">
+    <section
+      ref={researchersRef}
+      id="researchers"
+      className="bg-white py-20 max-sm:py-12"
+    >
       <div className="mx-auto max-w-7xl">
         <h2 className="px-6 text-center text-3xl max-md:text-2xl">
           {homeText.title}

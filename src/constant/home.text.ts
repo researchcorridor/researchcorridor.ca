@@ -36,14 +36,3 @@ export const whyChoose = {
     },
   ],
 };
-
-export const event = {
-  name: `UPCOMING EVENT`,
-  title: `Innovating a Sustainable Future`,
-  subtitle: `"Global Challenges and Solutions"`,
-  description: `The purpose of this MOU is to formalize the collaboration between Lahore Leads University and The Research Corridor for organizing an international conference on the theme "Innovating a Sustainable Future Global Challenges and Solutions "`,
-  buttonText: 'Join us',
-  buttonLink: '/events/1',
-  image:
-    'https://qhrlhzrjavgrczdonhra.supabase.co/storage/v1/object/public/general/collaboration.jpg',
-};

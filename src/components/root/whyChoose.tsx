@@ -1,7 +1,8 @@
 'use client';
 import { whyChoose } from '@/constant/home.text';
 
-const WhyChoose = () => {
+const WhyChoose = ({ data: { show = false } }: { data: { show: boolean } }) => {
+  if (!show) return null;
   return (
     <section id="why-choose" className="bg-white py-20">
       <div className="mx-auto max-w-7xl p-6 max-[500px]:p-1">

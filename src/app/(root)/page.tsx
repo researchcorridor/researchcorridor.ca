@@ -1,7 +1,11 @@
-import getHomePageData from '@/actions/home-page.action';
+import { Fragment } from 'react';
+
+import { getHomePageData } from '@/actions/home-page.action';
 import AboutRootSection from '@/components/about/root.section';
 import CollaborationsRootSection from '@/components/collaboration/root.section';
-import EventsRootSection from '@/components/event/root.section';
+import EventsRootSection, {
+  EventsRootType,
+} from '@/components/event/root.section';
 import CTAJournalSubmit from '@/components/journal/cta.submit';
 import JournalsRootSection from '@/components/journal/root.section';
 import ResearchersRootSection from '@/components/researcher/root.section';
@@ -9,37 +13,58 @@ import RoodHeader from '@/components/root/header';
 import WhyChoose from '@/components/root/whyChoose';
 import SubscriberCard from '@/components/subscriber/card';
 import { CollaborationCardType } from '@/types/collaboration.type';
-import { EventCardType } from '@/types/event.type';
 import { JournalCardType } from '@/types/journal.type';
 import { ResearcherCardType } from '@/types/researcher.type';
 
-export type LandingPageType = {
-  about: {
-    point: string[];
-    img: string;
+export type HomePageType = {
+  eventsSection: {
+    show: boolean;
+    data: EventsRootType;
   };
-  events: EventCardType[];
-  collaboration: CollaborationCardType[];
-  journals: JournalCardType[];
-  cta: { deadline: string };
-  researchers: ResearcherCardType[];
+  aboutSection: {
+    show: boolean;
+    data: {
+      point: string[];
+      img: string;
+    };
+  };
+  collaborationSection: {
+    show: boolean;
+    data: CollaborationCardType[];
+  };
+  wyChooseSection: {
+    show: boolean;
+  };
+  ctaJournalSubmitSection: {
+    show: boolean;
+    deadline: string;
+  };
+  journalsSection: {
+    show: boolean;
+    data: JournalCardType[];
+  };
+  researchersSection: {
+    show: boolean;
+    data: ResearcherCardType[];
+  };
+  subscriberSection: {
+    show: boolean;
+  };
 };
 
-const LandingPage = async () => {
-  const data: LandingPageType = await getHomePageData();
+export default async function LandingPage() {
+  const data: HomePageType = await getHomePageData();
   return (
-    <>
+    <Fragment>
       <RoodHeader />
-      <AboutRootSection {...data.about} />
-      <EventsRootSection data={data.events} />
-      <CollaborationsRootSection data={data.collaboration} />
-      <JournalsRootSection data={data.journals} />
-      <WhyChoose />
-      <CTAJournalSubmit data={data.cta} />
-      <ResearchersRootSection data={data.researchers} />
-      <SubscriberCard />
-    </>
+      <EventsRootSection data={data.eventsSection} />
+      <AboutRootSection data={data.aboutSection} />
+      <CollaborationsRootSection data={data.collaborationSection} />
+      <WhyChoose data={data.wyChooseSection} />
+      <CTAJournalSubmit data={data.ctaJournalSubmitSection} />
+      <JournalsRootSection data={data.journalsSection} />
+      <ResearchersRootSection data={data.researchersSection} />
+      <SubscriberCard data={data.subscriberSection} />
+    </Fragment>
   );
-};
-
-export default LandingPage;
+}
