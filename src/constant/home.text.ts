@@ -2,6 +2,15 @@ import { GoUnlock } from 'react-icons/go';
 import { PiGlobeSimpleLight, PiSealCheckLight } from 'react-icons/pi';
 import { TfiBolt } from 'react-icons/tfi';
 
+export const metadata = {
+  title: 'Research Corridor',
+  description:
+    'Research Corridor is a global platform fostering research collaboration and innovation across disciplines.',
+  keywords: 'research, collaboration, innovation, publication, open access',
+  image: '/opengraph-image.png',
+  url: 'https://researchcorridor.ca',
+};
+
 export const header = {
   logo: '/images/logo.png',
   title: 'Research Corridor',
