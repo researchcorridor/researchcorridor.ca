@@ -8,27 +8,24 @@ import { RiFocus2Line } from 'react-icons/ri';
 
 import useRefContext, { scrollIntoView } from '@/context/ref';
 
-export default function AboutRootSection({
-  data: {
-    show = false,
-    data = {
-      point: [],
-      img: '',
-    },
-  },
-}: {
-  data: {
-    show: boolean;
-    data: {
-      point: string[];
-      img: string;
-    };
-  };
-}) {
-  const { aboutRef, researchersRef, journalsRef } = useRefContext();
-  if (!show) return null;
-  const { point, img } = data;
+import Section from '../ui/Section';
 
+export type AboutRootType = {
+  show: boolean;
+  title?: string;
+  description?: string;
+  img: string;
+  point: string[];
+};
+
+export default function AboutRootSection({
+  show = false,
+  title,
+  description,
+  img,
+  point = ['', ''],
+}: AboutRootType) {
+  const { aboutRef, researchersRef, journalsRef } = useRefContext();
   const homeText = {
     point: [
       {
@@ -52,7 +49,7 @@ export default function AboutRootSection({
     ],
   };
   return (
-    <section ref={aboutRef} id="about" className="relative py-20">
+    <Section title={title} description={description} show={show} ref={aboutRef}>
       <div className="absolute inset-0 -z-20 bg-[url('/images/about-bg.png')] bg-cover bg-no-repeat opacity-10" />
       <div
         className="m-auto grid max-w-7xl grid-cols-[70%,30%]  items-center justify-center gap-5
@@ -98,6 +95,6 @@ export default function AboutRootSection({
           </div>
         </div>
       </div>
-    </section>
+    </Section>
   );
 }

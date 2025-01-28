@@ -2,7 +2,7 @@ import { GoUnlock } from 'react-icons/go';
 import { PiGlobeSimpleLight, PiSealCheckLight } from 'react-icons/pi';
 import { TfiBolt } from 'react-icons/tfi';
 
-export const homeText = {
+export const header = {
   logo: '/images/logo.png',
   title: 'Research Corridor',
   description:

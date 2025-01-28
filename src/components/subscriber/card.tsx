@@ -2,28 +2,32 @@
 
 import { Button, Input } from '@nextui-org/react';
 
-import { homeText } from '@/constant/subscriber';
+export type SubscriberCardType = {
+  show: boolean;
+  title: string;
+  description: string;
+  inputText: string;
+  buttonText: string;
+};
 
 export default function SubscriberCard({
-  data: { show = false },
-}: {
-  data: {
-    show: boolean;
-  };
-}) {
+  show = false,
+  title,
+  description,
+  inputText,
+  buttonText,
+}: SubscriberCardType) {
   if (!show) return null;
   return (
     <section id="email" className="bg-primary py-20 text-white max-sm:py-12">
       <div className="mx-auto max-w-7xl p-6">
-        <h2 className="text-5xl max-md:text-4xl max-sm:text-3xl">
-          {homeText.title}
-        </h2>
+        <h2 className="text-5xl max-md:text-4xl max-sm:text-3xl">{title}</h2>
         <p className="mt-4 max-w-3xl text-2xl max-sm:text-xl max-[500px]:text-lg">
-          {homeText.description}
+          {description}
         </p>
         <div className="mt-10 flex">
           <Input
-            label={homeText.inputText}
+            label={inputText}
             isClearable
             type="email"
             className="max-w-xl"
@@ -38,7 +42,7 @@ export default function SubscriberCard({
             size="lg"
             className="rounded-none rounded-r-md border-white text-white"
           >
-            {homeText.buttonText}
+            {buttonText}
           </Button>
         </div>
       </div>
