@@ -13,13 +13,21 @@ import {
 } from 'react-icons/pi';
 import { RiTwitterXFill } from 'react-icons/ri';
 
-export const meta = {
-  url: 'https://researchcorridor.org/',
-  dashboardURL: 'https://researchcorridor.org/dashboard',
+export const metadata = {
   title: 'Research Corridor',
-  description: 'Research Corridor',
-  keywords: ['Research Corridor'],
-  // googleSiteVerificationId: 'google-site-verification-id',
+  description:
+    'Research Corridor is a global platform fostering research collaboration and innovation across disciplines.',
+  keywords: 'research, collaboration, innovation, publication, open access',
+  image: '/opengraph-image.png',
+  url: 'https://researchcorridor.ca',
+  dashboardURL: 'https://researchcorridor.ca/dashboard',
+};
+
+export const header = {
+  logo: '/images/logo.png',
+  title: 'Research Corridor',
+  description:
+    'is a global platform fostering research collaboration and innovation across disciplines.',
 };
 
 export const navbar = {

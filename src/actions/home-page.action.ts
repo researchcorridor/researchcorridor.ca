@@ -1,7 +1,7 @@
 'use server';
 
 import { HomePageType } from '@/app/(root)/page';
-import { header } from '@/constant/home.text';
+import { header } from '@/constant/site-config.text';
 import { supabase } from '@/utils/supabase/client';
 
 const EmptyHomePageData: HomePageType = {
@@ -73,7 +73,7 @@ const EmptyHomePageData: HomePageType = {
 export const getHomePageData: () => Promise<HomePageType> = async () => {
   try {
     const { data, error } = await supabase
-      .from('constance')
+      .from('constant')
       .select('object')
       .eq('name', 'home')
       .single();

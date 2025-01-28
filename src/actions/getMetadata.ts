@@ -2,7 +2,7 @@
 
 import { Metadata } from 'next';
 
-import { metadata } from '@/constant/home.text';
+import { metadata } from '@/constant/site-config.text';
 import { supabase } from '@/utils/supabase/client';
 
 const EmptyMetadata: Metadata = metadata;
