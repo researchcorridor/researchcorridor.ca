@@ -1,17 +1,21 @@
 import { Metadata } from 'next';
 import { PropsWithChildren } from 'react';
 
+import { getMetadata } from '@/actions/getMetadata';
 import DashboardNavbar from '@/components/navbar/dashboard';
 import Sidebar from '@/components/sidebar';
-import { meta } from '@/constant/site-config.text';
 
 import { DashboardProviders } from './providers';
 
-export const metadata: Metadata = {
-  title: 'Dashboard',
-  description: meta.description,
-  keywords: [meta.title, 'dashboard', 'admin', 'panel', 'control', 'cms'],
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const data: Metadata = await getMetadata('home');
+  return {
+    ...data,
+    title: 'Dashboard',
+    keywords: ['dashboard', 'admin', 'panel', 'controls'].join(`, `),
+    robots: { index: false, follow: false },
+  };
+}
 
 export default function DashboardLayout({ children }: PropsWithChildren) {
   return (
