@@ -1,6 +1,6 @@
 'use client';
 
-import { Button, cn, Input } from '@nextui-org/react';
+import { Button, cn, Input } from '@heroui/react';
 import * as Dialog from '@radix-ui/react-dialog';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';

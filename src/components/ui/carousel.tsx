@@ -1,6 +1,6 @@
 'use client';
 
-import { Button, cn } from '@nextui-org/react';
+import { Button, cn } from '@heroui/react';
 import useEmblaCarousel, {
   type UseEmblaCarouselType,
 } from 'embla-carousel-react';

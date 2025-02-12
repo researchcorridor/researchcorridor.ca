@@ -1,6 +1,6 @@
 import '@/styles/globals.css';
 
-import { cn } from '@nextui-org/react';
+import { cn } from '@heroui/react';
 import type { Metadata } from 'next';
 import { PropsWithChildren } from 'react';
 

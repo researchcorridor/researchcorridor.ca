@@ -1,6 +1,6 @@
 'use client';
 
-import { Button, cn, Tooltip } from '@nextui-org/react';
+import { Button, cn, Tooltip } from '@heroui/react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 

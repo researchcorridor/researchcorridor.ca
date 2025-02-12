@@ -1,6 +1,6 @@
 'use client';
 
-import { NextUIProvider } from '@nextui-org/react';
+import { HeroUIProvider } from '@heroui/react';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import NextTopLoader from 'nextjs-toploader';
 import { useRouter } from 'nextjs-toploader/app';
@@ -13,7 +13,7 @@ import tailwindConfig from '../../tailwind.config';
 export function Providers({ children }: { children: React.ReactNode }) {
   const router = useRouter();
   return (
-    <NextUIProvider navigate={router.push}>
+    <HeroUIProvider navigate={router.push}>
       <NextThemesProvider defaultTheme="light">
         <NextTopLoader
           color={tailwindConfig.theme.extend.colors.primary.DEFAULT}
@@ -25,6 +25,6 @@ export function Providers({ children }: { children: React.ReactNode }) {
           </RrfProvider>
         </Suspense>
       </NextThemesProvider>
-    </NextUIProvider>
+    </HeroUIProvider>
   );
 }

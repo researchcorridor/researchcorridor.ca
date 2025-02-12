@@ -9,7 +9,6 @@ export const middleware = async (req: any) => {
   const {
     data: { user },
   } = await supabase.auth.getUser();
-  console.log('user', user);
   if (!user) {
     const url = req.nextUrl.clone();
     url.pathname = '/login';

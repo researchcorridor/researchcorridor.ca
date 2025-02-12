@@ -1,6 +1,6 @@
 'use client';
 
-import { Button } from '@nextui-org/react';
+import { Button } from '@heroui/react';
 import Image from 'next/image';
 
 import useRefContext, { scrollIntoView } from '@/context/ref';
