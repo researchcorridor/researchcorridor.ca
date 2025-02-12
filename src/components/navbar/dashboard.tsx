@@ -8,6 +8,7 @@ import { GoSidebarCollapse, GoSidebarExpand } from 'react-icons/go';
 import { dashboardNavbar as textData } from '@/constant/site-config.text';
 import useDashboardState from '@/context/dashboard-state';
 
+import FullScreen from '../ui/full-screen';
 import User from '../ui/user';
 
 export default function DashboardNavbar() {
@@ -45,6 +46,7 @@ export default function DashboardNavbar() {
         </Link>
       </div>
       <div className="flex items-center gap-2">
+        <FullScreen />
         <User />
       </div>
     </nav>
