@@ -33,6 +33,37 @@ export const userLogout = async (): Promise<string | void> => {
   } catch {
     throw 'Failed to logout';
   } finally {
-    return '/login';
+  }
+};
+
+export const getProfile = async (): Promise<{
+  name: string;
+  email: string;
+  picture: string;
+}> => {
+  const supabase = await createClient();
+  try {
+    const { data: user, error } = await supabase.auth.getUser();
+    if (error) throw error;
+    const profile = {
+      name: '',
+      email: user?.user?.email || '',
+      picture: '',
+    };
+
+    try {
+      const { data, error } = await supabase
+        .from('profiles')
+        .select()
+        .eq('user_id', user?.user?.id)
+        .single();
+      if (error) throw error;
+      profile.name = data?.name || '';
+    } finally {
+      return profile;
+    }
+  } catch (error) {
+    console.log('error', error);
+    return { name: '', email: '', picture: '' };
   }
 };
