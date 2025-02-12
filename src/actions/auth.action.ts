@@ -67,3 +67,15 @@ export const getProfile = async (): Promise<{
     return { name: '', email: '', picture: '' };
   }
 };
+
+export const userChangePassword = async (password: string): Promise<void> => {
+  const supabase = await createClient();
+  try {
+    const { error } = await supabase.auth.updateUser({
+      password,
+    });
+    if (error) throw error;
+  } catch {
+    throw 'Failed to change password';
+  }
+};
