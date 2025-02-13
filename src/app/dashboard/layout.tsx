@@ -24,7 +24,7 @@ export default function DashboardLayout({ children }: PropsWithChildren) {
         <DashboardNavbar />
         <div className="flex">
           <Sidebar />
-          <main className="mb-5 mr-5 h-[calc(100vh-85px)] flex-1 overflow-auto rounded-2xl bg-white shadow-lg">
+          <main className="relative mb-5 mr-5 h-[calc(100vh-85px)] flex-1 overflow-auto rounded-2xl bg-white shadow-lg">
             {children}
           </main>
         </div>
