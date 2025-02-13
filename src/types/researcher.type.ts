@@ -1,9 +1,8 @@
 export interface ResearcherCardType {
   comment: string;
-  researcher: {
-    name: string;
-    avatar: string;
-    position: string;
-    from: string;
-  };
+  name: string;
+  avatar: string;
+  position: string;
+  from: string;
+  link?: string;
 }

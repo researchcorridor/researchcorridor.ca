@@ -33,7 +33,7 @@ export default function ResearchersCarousel({
       ]}
     >
       <CarouselContent>
-        {data.map(({ researcher, comment }, index) => (
+        {data.map(({ name, avatar, position, from, comment }, index) => (
           <CarouselItem
             key={index}
             className="basis-1/2 max-[980px]:basis-full"
@@ -44,18 +44,16 @@ export default function ResearchersCarousel({
               </CardBody>
               <CardHeader className="flex gap-5">
                 <Image
-                  src={researcher.avatar}
-                  alt={researcher.name}
+                  src={avatar}
+                  alt={name}
                   height={60}
                   width={60}
                   className="rounded-full"
                 />
                 <div className="flex flex-col">
-                  <p className="text-md">{researcher.name}</p>
-                  <p className="text-small text-default-500">
-                    {researcher.position}
-                  </p>
-                  <p className="text-small text-primary">{researcher.from}</p>
+                  <p className="text-md">{name}</p>
+                  <p className="text-small text-default-500">{position}</p>
+                  <p className="text-small text-primary">{from}</p>
                 </div>
               </CardHeader>
             </Card>
