@@ -72,15 +72,35 @@ const EmptyHomePageData: HomePageType = {
 
 export const getHomePageData: () => Promise<HomePageType> = async () => {
   try {
-    const { data, error } = await supabase
+    let data: HomePageType = {
+      ...EmptyHomePageData,
+    };
+
+    // Fetch data from home table
+    const { data: constant, error: errorConstant } = await supabase
       .from('constant')
       .select('object')
       .eq('name', 'home')
       .single();
-    if (error) {
-      throw error;
+    if (errorConstant) {
+      throw errorConstant;
+    } else {
+      data = {
+        ...data,
+        ...constant.object,
+      };
     }
-    return data?.object ?? EmptyHomePageData;
+
+    const { data: collaboration, error: errorCollaboration } = await supabase
+      .from('collaboration')
+      .select('*')
+      .eq('home', true);
+    if (errorCollaboration) {
+      throw errorCollaboration;
+    }
+
+    data.collaborationSection.data = collaboration;
+    return constant?.object ?? EmptyHomePageData;
   } catch (error) {
     console.error('Error fetching data from home table', error);
     return EmptyHomePageData;
