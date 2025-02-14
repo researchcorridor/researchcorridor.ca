@@ -3,66 +3,73 @@
 import { Image } from '@heroui/react';
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { LuUserRound } from 'react-icons/lu';
-import { PiHandshake } from 'react-icons/pi';
+import { PiListMagnifyingGlass } from 'react-icons/pi';
 
 import EditForm from '@/components/ui/edit-form';
 import FileUploadButton from '@/components/ui/FileUploadButton';
-import { ResearcherCardType } from '@/types/researcher.type';
 import { supabase } from '@/utils/supabase/client';
 
 export default function Collaborations() {
   const { id } = useParams();
-  const [data, setData] = useState<ResearcherCardType>({
-    avatar: '',
-    comment: '',
-    from: '',
-    name: '',
-    position: '',
-    link: '',
-  });
   const [loading, setLoading] = useState(true);
+  const [data, setData] = useState<{
+    title: string;
+    description: string;
+    thumbnail: string;
+    link: string;
+    home: boolean;
+  }>({
+    title: '',
+    description: '',
+    thumbnail: '',
+    link: '',
+    home: false,
+  });
+
+  const getData = async () => {
+    setLoading(true);
+    const { data, error } = await supabase
+      .from('collaboration')
+      .select('*')
+      .eq('id', id)
+      .single();
+    if (!error) {
+      setData(data);
+    }
+    setLoading(false);
+  };
 
   useEffect(() => {
-    if (id !== 'create') {
-      setLoading(true);
-      supabase
-        .from('researcher')
-        .select('*')
-        .eq('id', id)
-        .then(({ data, error }) => {
-          setLoading(false);
-          if (error) {
-            console.error(error);
-          } else {
-            console.log(data);
-            setData(data[0]);
-            setLoading(false);
-          }
-        });
-    } else {
-      setLoading(false);
-    }
-  }, [id]);
+    if (id !== 'create') getData();
+    else setLoading(false);
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <EditForm
-      isLoading={loading}
+      isSkeleton={loading}
       data={data}
-      title="Collaboration"
-      Icon={PiHandshake}
+      title="Collaborations"
+      Icon={PiListMagnifyingGlass}
       cancelLink="/dashboard/collaborations"
       onSubmit={async (FormData) => {
         const body = {
-          name: FormData.get('name'),
-          position: FormData.get('position'),
-          from: FormData.get('from'),
-          comment: FormData.get('comment'),
+          title: FormData.get('title'),
+          description: FormData.get('description'),
           link: FormData.get('link'),
-          avatar: data.avatar,
+          thumbnail: data.thumbnail,
+          home: FormData.get('home') !== null,
         };
-        const { error } = await supabase.from('researcher').upsert(body);
-        if (error) return error.message;
+        if (id === 'create') {
+          const { error } = await supabase.from('collaboration').insert(body);
+          if (error) return error.message;
+        } else {
+          const { error } = await supabase
+            .from('collaboration')
+            .update(body)
+            .eq('id', id);
+          if (error) return error.message;
+        }
         return '';
       }}
       inputs={[
@@ -71,26 +78,27 @@ export default function Collaborations() {
           name: 'avatar',
           component(value, loading) {
             return (
-              <div className="flex items-center gap-2">
-                {data.avatar ? (
+              <div className="flex items-end gap-2">
+                {data.thumbnail ? (
                   <Image
-                    src={data.avatar}
+                    src={data.thumbnail}
                     alt="Profile Picture"
-                    height={60}
-                    width={60}
-                    className="bg-primary-200 rounded-full"
+                    className="border-default-200 rounded-medium flex size-40 items-center justify-center border-2 shadow-sm"
                   />
                 ) : (
-                  <div className="bg-primary-200 flex size-20 items-center justify-center rounded-full p-1">
-                    <LuUserRound className="text-5xl text-white" />
+                  <div className="border-default-200 rounded-medium flex size-40 items-center justify-center border-2 shadow-sm">
+                    logo
                   </div>
                 )}
                 <FileUploadButton
                   disabled={loading}
                   bucketName="/upload"
                   size="lg"
+                  buttonLabel={
+                    data.thumbnail ? 'Change Thumbnail' : 'Upload Thumbnail'
+                  }
                   onUpload={(url) => {
-                    setData({ ...data, avatar: url });
+                    setData({ ...data, thumbnail: url });
                   }}
                 />
               </div>
@@ -98,27 +106,24 @@ export default function Collaborations() {
           },
         },
         {
-          label: 'Other Profile Link',
+          label: 'Show on Home',
+          name: 'home',
+          componentType: 'switch',
+        },
+        {
+          label: 'Link',
           name: 'link',
-          type: 'text',
-        },
-        {
-          label: 'Name',
-          name: 'name',
+          type: 'url',
           required: true,
         },
         {
-          label: 'Position',
-          name: 'position',
-        },
-        {
-          label: 'From (Institution)',
-          name: 'from',
+          label: 'Title',
+          name: 'title',
           required: true,
         },
         {
-          label: 'Comment',
-          name: 'comment',
+          label: 'Description',
+          name: 'description',
           required: true,
           componentType: 'textarea',
         },

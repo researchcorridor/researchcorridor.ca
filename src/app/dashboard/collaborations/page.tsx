@@ -6,6 +6,7 @@ import { BiSolidEdit } from 'react-icons/bi';
 import { PiHandshake } from 'react-icons/pi';
 
 import DataTable from '@/components/ui/data-table';
+import DeleteButton from '@/components/ui/delete-button';
 import { supabase } from '@/utils/supabase/client';
 
 export default function Collaborations() {
@@ -20,11 +21,11 @@ export default function Collaborations() {
     try {
       setLoading(true);
       const { data, count, error } = (await supabase
-        .from('researcher')
+        .from('collaboration')
         .select('*', { count: 'exact' })
         .range((page - 1) * PAGE_SIZE, page * PAGE_SIZE - 1)
         .order('created_at', { ascending: false })
-        .ilike('name', `%${q}%`)) as any;
+        .ilike('title', `%${q}%`)) as any;
       setLoading(false);
       if (error) {
         console.error(error);
@@ -44,6 +45,7 @@ export default function Collaborations() {
   const onSearch = (value: string) => {
     setSearch(value);
     setPage(1);
+    getData(1, value);
   };
 
   return (
@@ -51,7 +53,7 @@ export default function Collaborations() {
       title="Collaborations"
       Icon={PiHandshake}
       addButtonLink="/dashboard/collaborations/create"
-      addButtonText="Create Collaboration"
+      addButtonText="Add Collaborations"
       rows={data}
       onSearch={onSearch}
       isLoading={loading}
@@ -67,33 +69,36 @@ export default function Collaborations() {
       }}
       columns={[
         {
-          title: 'Name',
-          key: 'name',
-        },
-        {
-          title: 'Position',
-          key: 'position',
-        },
-        {
-          title: 'From',
-          key: 'from',
+          title: 'Title',
+          key: 'title',
         },
         {
           title: 'Action',
-          key: 'action',
+          key: 'id',
+          align: 'center',
           component(data, rowData) {
             return (
-              <Button
-                as="a"
-                href={`/dashboard/collaborations/${rowData.id}`}
-                color="primary"
-                variant="light"
-                isIconOnly
-                aria-label="Edit"
-                className="text-2xl"
-              >
-                <BiSolidEdit />
-              </Button>
+              <div className="flex items-center justify-center gap-2">
+                <Button
+                  as="a"
+                  href={`/dashboard/collaborations/${rowData.id}`}
+                  color="primary"
+                  variant="light"
+                  isIconOnly
+                  aria-label="Edit"
+                  className="text-2xl"
+                >
+                  <BiSolidEdit />
+                </Button>
+                <DeleteButton
+                  onDelete={() => {
+                    getData(page, search);
+                  }}
+                  id={rowData.id}
+                  table="collaboration"
+                  name={`collaboration "${rowData.title}"`}
+                />
+              </div>
             );
           },
         },
