@@ -37,7 +37,7 @@ export default function LoginPage() {
 
   return (
     <Form
-      className="m-auto mt-10 flex w-full max-w-sm flex-col gap-4 rounded-xl p-5 shadow-2xl backdrop-blur-lg max-md:max-w-2xl"
+      className="m-auto mt-10 flex w-full max-w-sm flex-col gap-4 rounded-xl p-5 shadow-2xl backdrop-blur-lg"
       validationBehavior="native"
       onSubmit={handleLogin}
     >

@@ -20,7 +20,7 @@ export default function AuthLayout({ children }: PropsWithChildren) {
           <p className="max-w-lg text-xl max-md:text-center max-md:text-lg max-sm:text-base">
             {textData.description}
           </p>
-          <div className="md:hidden">{children}</div>
+          <div className="w-full md:hidden">{children}</div>
           <div className="mt-10 max-md:hidden">
             <Button
               color="primary"
@@ -34,7 +34,7 @@ export default function AuthLayout({ children }: PropsWithChildren) {
             </Button>
           </div>
         </div>
-        <div className="relative flex basis-1/2 items-center justify-center">
+        <div className="relative flex basis-1/2 items-center justify-center max-md:hidden">
           {children}
         </div>
       </div>
