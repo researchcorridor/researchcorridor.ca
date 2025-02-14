@@ -20,7 +20,7 @@ const FileUploadButton: React.FC<FileUploadButtonProps> = ({
   buttonLabel = 'Upload File',
   disabled = false,
   icon = true,
-  size = 'md',
+  size = 'sm',
   className,
 }) => {
   const [loading, setLoading] = useState(false);

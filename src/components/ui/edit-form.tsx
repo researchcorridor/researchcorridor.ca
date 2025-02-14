@@ -1,6 +1,14 @@
 'use client';
 
-import { Button, cn, Form, Input, Switch, Textarea } from '@heroui/react';
+import {
+  Button,
+  cn,
+  Form,
+  Input,
+  Skeleton,
+  Switch,
+  Textarea,
+} from '@heroui/react';
 import Link from 'next/link';
 import { useRouter } from 'nextjs-toploader/app';
 import { FormEvent, Fragment, useState } from 'react';
@@ -38,6 +46,7 @@ type EditFormProps = {
   className?: string;
   isLoading?: boolean;
   onSubmit?: (data: FormData) => Promise<string>;
+  isSkeleton?: boolean;
 };
 
 export default function EditForm({
@@ -52,6 +61,7 @@ export default function EditForm({
   afterSave,
   className,
   onSubmit,
+  isSkeleton,
 }: EditFormProps) {
   const [loading, setLoading] = useState<boolean>(false);
   const router = useRouter();
@@ -118,7 +128,9 @@ export default function EditForm({
           {inputs &&
             inputs.map((input) => (
               <Fragment key={input.name}>
-                {input.component ? (
+                {isSkeleton ? (
+                  <Skeleton className="h-10 w-full opacity-20" />
+                ) : input.component ? (
                   input.component(data && data[input.name], loading)
                 ) : input.componentType === 'textarea' ? (
                   <Textarea
