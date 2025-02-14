@@ -5,6 +5,7 @@ import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import NextTopLoader from 'nextjs-toploader';
 import { useRouter } from 'nextjs-toploader/app';
 import { Suspense } from 'react';
+import { Toaster } from 'react-hot-toast';
 
 import { RrfProvider } from '@/context/ref';
 
@@ -19,6 +20,8 @@ export function Providers({ children }: { children: React.ReactNode }) {
           color={tailwindConfig.theme.extend.colors.primary.DEFAULT}
           height={2}
         />
+
+        <Toaster position="top-right" />
         <Suspense>
           <RrfProvider>
             <>{children}</>
