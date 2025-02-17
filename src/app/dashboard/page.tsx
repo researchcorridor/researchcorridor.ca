@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 
-import ComingSoon from '@/components/ui/coming-soon';
+import Cards from '@/components/dashboard/cards';
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -10,8 +10,13 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function DashboardPage() {
   return (
-    <>
-      <ComingSoon page="dashboard" home={false} />
-    </>
+    <div>
+      <div className="w-full p-4 py-5">
+        <h2 className="text-primary text-center text-4xl">
+          Welcome to Search Corridor
+        </h2>
+      </div>
+      <Cards />
+    </div>
   );
 }

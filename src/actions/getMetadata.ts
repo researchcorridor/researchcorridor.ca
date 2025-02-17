@@ -44,14 +44,6 @@ export async function getMetadata(page: string): Promise<Metadata> {
       title: metadata.title,
       description: metadata.description,
       keywords: metadata.keywords,
-      openGraph: {
-        url: metadata.url,
-        title: metadata.title,
-        description: metadata.description,
-        siteName: metadata.title,
-        images: metadata.image,
-        type: 'website',
-      },
       twitter: {
         card: 'summary_large_image',
         title: metadata.title,
