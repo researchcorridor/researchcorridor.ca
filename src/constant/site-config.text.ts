@@ -1,4 +1,4 @@
-import { IoCallOutline } from 'react-icons/io5';
+import { IoCallOutline, IoNewspaperOutline } from 'react-icons/io5';
 import { LuFacebook, LuInstagram, LuLinkedin } from 'react-icons/lu';
 import { MdOutlineEmail } from 'react-icons/md';
 import {
@@ -80,6 +80,11 @@ export const dashboardSidebar = {
       title: 'Dashboard',
       icon: PiHouseLine,
       url: '/',
+    },
+    {
+      title: 'Submissions',
+      icon: IoNewspaperOutline,
+      url: '/submissions',
     },
     {
       title: 'Events',

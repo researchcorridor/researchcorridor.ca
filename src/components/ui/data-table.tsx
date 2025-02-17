@@ -111,7 +111,7 @@ const DataTable = ({
           )}
         </div>
       </div>
-      <div className="flex items-center justify-between p-4">
+      <div className="flex items-center justify-start gap-2 p-4">
         {onSearch && (
           <Input
             className="max-w-[250px]"
