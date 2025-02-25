@@ -29,7 +29,7 @@ export default function DashboardNavbar() {
           )}
         </Button>
         <Link
-          href="/org"
+          href="/"
           target="_blank"
           className="text-primary flex items-center gap-2"
           color="primary"

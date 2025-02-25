@@ -4,16 +4,20 @@ import { Button } from '@heroui/react';
 import dayjs from 'dayjs';
 import { useEffect, useState } from 'react';
 import { BiSolidEdit } from 'react-icons/bi';
+import { CiSaveDown2 } from 'react-icons/ci';
 import { PiHandshake } from 'react-icons/pi';
 
 import DataTable from '@/components/ui/data-table';
 import DateRange, { DateRangeState } from '@/components/ui/date-range';
 import DeleteButton from '@/components/ui/delete-button';
+import exportToExcel from '@/lib/export-to-excel';
 import { supabase } from '@/utils/supabase/client';
 
 export default function Collaborations() {
   const PAGE_SIZE = 10;
-  const [data, setData] = useState<any[]>([]);
+  const [exporting, setExporting] = useState(false);
+
+  const [data, setData] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState('');
@@ -30,8 +34,6 @@ export default function Collaborations() {
   ) => {
     try {
       setLoading(true);
-      console.log('q', q);
-      console.log('dateRange', dr);
       const { data, count, error } = (await supabase
         .from('submissions')
         .select('*', { count: 'exact' })
@@ -65,12 +67,72 @@ export default function Collaborations() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const download = async () => {
+    setExporting(true);
+    const { data, error } = await supabase
+      .from('submissions')
+      .select('*')
+      .order('created_at', { ascending: false })
+      .or(
+        `email.ilike.%${search}%,first_name.ilike.%${search}%,last_name.ilike.%${search}%,institution.ilike.%${search}%,country.ilike.%${search}%`,
+      )
+      .gte(
+        'created_at',
+        dateRange.start
+          ? dateRange.start.toISOString()
+          : '1970-01-01T00:00:00Z',
+      )
+      .lte(
+        'created_at',
+        dateRange.end ? dateRange.end.toISOString() : new Date().toISOString(),
+      );
+
+    if (error) {
+      console.error(error);
+      return;
+    }
+    setExporting(true);
+    await exportToExcel(
+      [
+        ...data.map((d) => ({
+          'Submitted At': dayjs(d.created_at).format(
+            'DD MMM YYYY - hh:mm:ss A',
+          ),
+          'First Name': d.first_name,
+          'Last Name': d.last_name,
+          Institution: d.institution,
+          Country: d.country,
+          Email: d.email,
+          Phone: d.phone,
+          "co-Author's Name": d.co_author_name,
+          'Paper Title': d.paper_title,
+          'Paper Abstract': d.paper_abstract,
+          'Paper Keywords': d.paper_keywords,
+          'Paper File': `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/submissions/${d.file}`,
+        })),
+      ],
+      'submissions',
+    );
+    setExporting(false);
+  };
   return (
     <DataTable
       title="Submissions"
       Icon={PiHandshake}
       addButtonLink="/submit-paper"
       addButtonText="Add submissions"
+      headerChildren={
+        <Button
+          color="primary"
+          variant="ghost"
+          onPress={download}
+          isLoading={exporting}
+          className="flex items-center gap-2"
+        >
+          <CiSaveDown2 />
+          Download
+        </Button>
+      }
       rows={data}
       onSearch={(value: string) => {
         setSearch(value);
