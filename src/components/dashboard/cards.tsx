@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { IoNewspaperOutline } from 'react-icons/io5';
 import { IconType } from 'react-icons/lib';
+import { MdAlternateEmail } from 'react-icons/md';
 import { PiHandshake, PiListMagnifyingGlass } from 'react-icons/pi';
 
 import { getCount } from '@/actions/getCount';
@@ -32,6 +33,11 @@ const cards: cardType[] = [
     icon: PiListMagnifyingGlass,
     url: 'researchers',
   },
+  {
+    title: 'Emails',
+    icon: MdAlternateEmail,
+    url: 'emails',
+  },
 ];
 
 export default function Cards() {
@@ -40,6 +46,7 @@ export default function Cards() {
     Collaborations: 0,
     Researchers: 0,
     Submissions: 0,
+    Emails: 0,
   });
 
   const getData = async () => {
@@ -49,6 +56,7 @@ export default function Cards() {
         Collaborations: await getCount('collaboration'),
         Researchers: await getCount('researcher'),
         Submissions: await getCount('submissions'),
+        Emails: await getCount('email'),
       });
     } catch (error) {
       console.log(error);
@@ -61,7 +69,7 @@ export default function Cards() {
     getData();
   }, []);
   return (
-    <div className="grid grid-cols-3 gap-5 p-4 pt-5 max-xl:grid-cols-2">
+    <div className="grid grid-cols-4 gap-5 p-4 pt-5 max-xl:grid-cols-3">
       {cards.map((c, i) => (
         <Card
           as={Link}
@@ -71,12 +79,9 @@ export default function Cards() {
           shadow="none"
         >
           <CardHeader className="flex justify-between px-4 pb-0 pt-2">
-            <h4 className="text-large text-foreground-700">{c.title}</h4>
             <span>
               <c.icon className="text-primary text-5xl" />
             </span>
-          </CardHeader>
-          <CardBody className="overflow-visible py-2">
             <h3 className="text-default-700 text-3xl">
               {isLoading ? (
                 <Skeleton className="h-6 w-10 opacity-20" />
@@ -84,6 +89,9 @@ export default function Cards() {
                 data[c.title as keyof typeof data] || 0
               )}
             </h3>
+          </CardHeader>
+          <CardBody className="overflow-visible">
+            <h4 className="text-large text-foreground-700">{c.title}</h4>
           </CardBody>
         </Card>
       ))}

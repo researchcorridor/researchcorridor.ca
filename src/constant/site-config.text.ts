@@ -1,6 +1,10 @@
 import { IoCallOutline, IoNewspaperOutline } from 'react-icons/io5';
 import { LuFacebook, LuInstagram, LuLinkedin } from 'react-icons/lu';
-import { MdOutlineEmail } from 'react-icons/md';
+import {
+  MdAlternateEmail,
+  MdOutlineEmail,
+  MdScreenSearchDesktop,
+} from 'react-icons/md';
 import {
   PiAddressBook,
   PiCalendarCheck,
@@ -87,11 +91,6 @@ export const dashboardSidebar = {
       url: '/submissions',
     },
     {
-      title: 'Events',
-      icon: PiCalendarCheck,
-      url: '/events',
-    },
-    {
       title: 'Collaborations',
       icon: PiHandshake,
       url: '/collaborations',
@@ -105,6 +104,16 @@ export const dashboardSidebar = {
       title: 'Researchers',
       icon: PiListMagnifyingGlass,
       url: '/researchers',
+    },
+    {
+      title: 'Meta Data',
+      icon: MdScreenSearchDesktop,
+      url: '/metadata',
+    },
+    {
+      title: 'Emails',
+      icon: MdAlternateEmail,
+      url: '/emails',
     },
     {
       title: 'Contact',
