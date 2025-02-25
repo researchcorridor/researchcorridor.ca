@@ -6,7 +6,11 @@ import { useEffect, useState } from 'react';
 import { IoNewspaperOutline } from 'react-icons/io5';
 import { IconType } from 'react-icons/lib';
 import { MdAlternateEmail } from 'react-icons/md';
-import { PiHandshake, PiListMagnifyingGlass } from 'react-icons/pi';
+import {
+  PiAddressBook,
+  PiHandshake,
+  PiListMagnifyingGlass,
+} from 'react-icons/pi';
 
 import { getCount } from '@/actions/getCount';
 
@@ -38,6 +42,11 @@ const cards: cardType[] = [
     icon: MdAlternateEmail,
     url: 'emails',
   },
+  {
+    title: 'Contact',
+    icon: PiAddressBook,
+    url: 'contact',
+  },
 ];
 
 export default function Cards() {
@@ -47,6 +56,7 @@ export default function Cards() {
     Researchers: 0,
     Submissions: 0,
     Emails: 0,
+    Contact: 0,
   });
 
   const getData = async () => {
@@ -57,6 +67,7 @@ export default function Cards() {
         Researchers: await getCount('researcher'),
         Submissions: await getCount('submissions'),
         Emails: await getCount('email'),
+        Contact: await getCount('contact'),
       });
     } catch (error) {
       console.log(error);
