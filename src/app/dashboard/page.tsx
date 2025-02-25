@@ -13,7 +13,7 @@ export default function DashboardPage() {
     <div>
       <div className="w-full p-4 py-5">
         <h2 className="text-primary text-center text-4xl">
-          Welcome to Search Corridor
+          Welcome to Research Corridor
         </h2>
       </div>
       <Cards />
