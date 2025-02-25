@@ -99,7 +99,16 @@ export const getHomePageData: () => Promise<HomePageType> = async () => {
       throw errorCollaboration;
     }
 
+    const { data: researcher, error: errorEvents } = await supabase
+      .from('researcher')
+      .select('*')
+      .eq('home', true);
+    if (errorEvents) {
+      throw errorEvents;
+    }
+
     data.collaborationSection.data = collaboration;
+    data.researchersSection.data = researcher;
     return constant?.object ?? EmptyHomePageData;
   } catch (error) {
     console.error('Error fetching data from home table', error);
