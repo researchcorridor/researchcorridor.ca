@@ -57,6 +57,7 @@ export default function SubscriberCard({
               isClearable
               type="email"
               className="max-w-xl"
+              isRequired
               size="sm"
               name="email"
               classNames={{
