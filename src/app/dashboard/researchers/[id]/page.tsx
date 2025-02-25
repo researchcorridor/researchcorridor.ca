@@ -57,6 +57,7 @@ export default function Collaborations() {
           comment: FormData.get('comment'),
           link: FormData.get('link'),
           avatar: data.avatar,
+          home: FormData.get('home') !== null,
         };
         if (id === 'create') {
           const { error } = await supabase.from('researcher').insert(body);
@@ -100,6 +101,11 @@ export default function Collaborations() {
               </div>
             );
           },
+        },
+        {
+          label: 'Show on Home',
+          name: 'home',
+          componentType: 'switch',
         },
         {
           label: 'Other Profile Link',
