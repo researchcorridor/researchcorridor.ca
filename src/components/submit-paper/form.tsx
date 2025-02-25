@@ -218,9 +218,13 @@ export default function SubmitPaperForm() {
         variant="bordered"
         color="primary"
         name="abstract"
-        maxLength={300}
-        minLength={100}
         isDisabled={loading}
+        validate={(value) => {
+          const wordCount = value.trim().split(/\s+/).length;
+          if (wordCount < 100) return 'Abstract must be at least 100 words';
+          if (wordCount > 300) return 'Abstract must be max 300 words';
+        }}
+        description="Write a paragraph between 100 to 300 words"
       />
       <Input
         isRequired
@@ -240,6 +244,7 @@ export default function SubmitPaperForm() {
         variant="bordered"
         color="primary"
         type="file"
+        accept=".pdf,.doc,.docx"
         name="file"
         isDisabled={loading}
       />
