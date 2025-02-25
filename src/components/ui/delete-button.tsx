@@ -70,7 +70,7 @@ export default function DeleteButton({
         color="danger"
         variant="light"
         isIconOnly
-        aria-label="Edit"
+        aria-label="Delete"
         className="text-2xl"
       >
         <AiOutlineDelete />
