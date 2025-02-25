@@ -52,13 +52,13 @@ export default function DialogBox({
           className={cn(
             animateIn,
             animateOut,
-            'fixed left-1/2 top-1/2 z-[999] w-full max-w-2xl -translate-x-1/2 -translate-y-1/2 focus:outline-none',
+            'fixed left-1/2 top-1/2 z-[999] m-2 w-full max-w-2xl -translate-x-1/2 -translate-y-1/2 focus:outline-none',
           )}
         >
           <div className="bg-background shadow-xl duration-200 sm:rounded-lg">
             {title ? (
               <Dialog.Title>
-                <div className="border-primary-200 flex items-center justify-between border-b p-4">
+                <div className="border-primary-200 flex items-center justify-between border-b p-4 py-2">
                   <h1 className="text-primary text-2xl">{title}</h1>
                   <Button
                     color="danger"
@@ -76,7 +76,14 @@ export default function DialogBox({
             ) : (
               <Dialog.Title />
             )}
-            <div className={cn('mx-2 p-6', className)}>{boxContent}</div>
+            <div
+              className={cn(
+                'max-h-[calc(100vh-80px)] overflow-y-auto p-4',
+                className,
+              )}
+            >
+              {boxContent}
+            </div>
           </div>
         </Dialog.Content>
       </Dialog.Portal>
