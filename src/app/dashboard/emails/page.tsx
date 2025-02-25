@@ -1,9 +1,12 @@
 'use client';
 
 import { Button } from '@heroui/react';
+import { useClipboard } from '@mantine/hooks';
 import dayjs from 'dayjs';
 import { useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 import { CiSaveDown2 } from 'react-icons/ci';
+import { IoMdCopy } from 'react-icons/io';
 import { MdAlternateEmail } from 'react-icons/md';
 
 import DataTable from '@/components/ui/data-table';
@@ -13,6 +16,7 @@ import exportToExcel from '@/lib/export-to-excel';
 import { supabase } from '@/utils/supabase/client';
 
 export default function Collaborations() {
+  const clipboard = useClipboard({ timeout: 500 });
   const PAGE_SIZE = 10;
   const [exporting, setExporting] = useState(false);
 
@@ -159,6 +163,18 @@ export default function Collaborations() {
           component(data, rowData) {
             return (
               <div className="flex items-center justify-center gap-2">
+                <Button
+                  color="secondary"
+                  variant="light"
+                  isIconOnly
+                  onPress={() => {
+                    clipboard.copy(rowData.email);
+                    toast.success('Email copied to clipboard');
+                  }}
+                  className="text-2xl"
+                >
+                  <IoMdCopy />
+                </Button>
                 <DeleteButton
                   onDelete={async () => {
                     getData(page, search);
