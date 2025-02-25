@@ -293,6 +293,9 @@ export default function Collaborations() {
                 </DialogBox>
                 <DeleteButton
                   onDelete={async () => {
+                    await supabase.storage
+                      .from('papers')
+                      .remove([rowData.file]);
                     getData(page, search);
                   }}
                   id={rowData.id}
