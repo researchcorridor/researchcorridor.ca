@@ -2,14 +2,16 @@
 
 import { Button } from '@heroui/react';
 import dayjs from 'dayjs';
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import { BiSolidEdit } from 'react-icons/bi';
 import { CiSaveDown2 } from 'react-icons/ci';
+import { IoNewspaperOutline } from 'react-icons/io5';
 import { PiHandshake } from 'react-icons/pi';
 
 import DataTable from '@/components/ui/data-table';
 import DateRange, { DateRangeState } from '@/components/ui/date-range';
 import DeleteButton from '@/components/ui/delete-button';
+import DialogBox from '@/components/ui/dialog-box';
 import exportToExcel from '@/lib/export-to-excel';
 import { supabase } from '@/utils/supabase/client';
 
@@ -108,7 +110,7 @@ export default function Collaborations() {
           'Paper Title': d.paper_title,
           'Paper Abstract': d.paper_abstract,
           'Paper Keywords': d.paper_keywords,
-          'Paper File': `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/submissions/${d.file}`,
+          'Paper File': `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/papers/${d.file}`,
         })),
       ],
       'submissions',
@@ -199,19 +201,98 @@ export default function Collaborations() {
           component(data, rowData) {
             return (
               <div className="flex items-center justify-center gap-2">
-                <Button
-                  as="a"
-                  href={`/dashboard/submissions/${rowData.id}`}
-                  color="primary"
-                  variant="light"
-                  isIconOnly
-                  aria-label="Edit"
-                  className="text-2xl"
+                <DialogBox
+                  title="Submission Details"
+                  boxContent={
+                    <table className="w-full">
+                      <tbody>
+                        <tr>
+                          <td className="text-primary w-40">First Name</td>
+                          <td>
+                            {rowData.prefix}. {rowData.first_name}
+                          </td>
+                        </tr>
+                        <tr className="h-4"></tr>
+                        <tr>
+                          <td className="text-primary">Last Name</td>
+                          <td>{rowData.last_name}</td>
+                        </tr>
+                        <tr className="h-4"></tr>
+                        <tr>
+                          <td className="text-primary">Institution</td>
+                          <td>{rowData.institution}</td>
+                        </tr>
+                        <tr className="h-4"></tr>
+                        <tr>
+                          <td className="text-primary">Country</td>
+                          <td>{rowData.country}</td>
+                        </tr>
+                        <tr className="h-4"></tr>
+                        <tr>
+                          <td className="text-primary">Email</td>
+                          <td>{rowData.email}</td>
+                        </tr>
+                        <tr className="h-4"></tr>
+                        <tr>
+                          <td className="text-primary">Phone</td>
+                          <td>{rowData.phone}</td>
+                        </tr>
+                        <tr className="h-4"></tr>
+                        <tr>
+                          <td className="text-primary">
+                            Co-Author&apos;s Name
+                          </td>
+                          <td>{rowData.co_authors}</td>
+                        </tr>
+                        <tr className="h-4"></tr>
+                        <tr>
+                          <td className="text-primary">Paper Title</td>
+                          <td>{rowData.paper_title}</td>
+                        </tr>
+                        <tr className="h-4"></tr>
+                        <tr>
+                          <td className="text-primary">Presentation</td>
+                          <td>{rowData.presentation}</td>
+                        </tr>
+                        <tr className="h-4"></tr>
+                        <tr>
+                          <td className="text-primary">Paper Abstract</td>
+                          <td>{rowData.abstract}</td>
+                        </tr>
+                        <tr className="h-4"></tr>
+                        <tr>
+                          <td className="text-primary">Paper Keywords</td>
+                          <td>{rowData.keywords}</td>
+                        </tr>
+                        <tr className="h-4"></tr>
+                        <tr>
+                          <td className="text-primary">Paper File</td>
+                          <td>
+                            <Link
+                              download
+                              title="Download"
+                              href={`${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/papers/${rowData.file}`}
+                            >
+                              Download
+                            </Link>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  }
                 >
-                  <BiSolidEdit />
-                </Button>
+                  <Button
+                    color="secondary"
+                    variant="light"
+                    isIconOnly
+                    aria-label="View"
+                    className="text-2xl"
+                  >
+                    <IoNewspaperOutline />
+                  </Button>
+                </DialogBox>
                 <DeleteButton
-                  onDelete={() => {
+                  onDelete={async () => {
                     getData(page, search);
                   }}
                   id={rowData.id}
