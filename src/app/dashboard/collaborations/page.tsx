@@ -1,8 +1,9 @@
 'use client';
 
-import { Button } from '@heroui/react';
+import { Button, cn } from '@heroui/react';
 import { useEffect, useState } from 'react';
 import { BiSolidEdit } from 'react-icons/bi';
+import { IoMdHome } from 'react-icons/io';
 import { PiHandshake } from 'react-icons/pi';
 
 import DataTable from '@/components/ui/data-table';
@@ -68,6 +69,22 @@ export default function Collaborations() {
         },
       }}
       columns={[
+        {
+          title: 'Home',
+          key: 'home',
+          className: 'w-12',
+          align: 'center',
+          component: (home) => (
+            <div className="flex justify-center">
+              <IoMdHome
+                className={cn(
+                  'text-xl',
+                  home ? 'text-primary' : 'text-gray-300',
+                )}
+              />
+            </div>
+          ),
+        },
         {
           title: 'Title',
           key: 'title',

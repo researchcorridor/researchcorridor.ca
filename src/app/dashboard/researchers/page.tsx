@@ -72,10 +72,17 @@ export default function Collaborations() {
         {
           title: 'Home',
           key: 'home',
+          className: 'w-12',
+          align: 'center',
           component: (home) => (
-            <IoMdHome
-              className={cn('text-xl', home ? 'text-primary' : 'text-gray-300')}
-            />
+            <div className="flex justify-center">
+              <IoMdHome
+                className={cn(
+                  'text-xl',
+                  home ? 'text-primary' : 'text-gray-300',
+                )}
+              />
+            </div>
           ),
         },
         {
