@@ -1,21 +1,21 @@
 import { IoCallOutline, IoNewspaperOutline } from 'react-icons/io5';
-import { LuFacebook, LuInstagram, LuLinkedin } from 'react-icons/lu';
 import {
-  MdAlternateEmail,
-  MdOutlineEmail,
-  MdScreenSearchDesktop,
-} from 'react-icons/md';
+  LuFacebook,
+  LuInstagram,
+  LuLinkedin,
+  LuUserRoundSearch,
+} from 'react-icons/lu';
+import { MdAlternateEmail, MdOutlineEmail } from 'react-icons/md';
 import {
   PiAddressBook,
   PiCalendarCheck,
   PiHandshake,
   PiHouseLine,
   PiInfo,
-  PiListMagnifyingGlass,
   PiMapPinAreaLight,
   PiNewspaper,
 } from 'react-icons/pi';
-import { RiTwitterXFill } from 'react-icons/ri';
+import { RiPagesLine, RiTwitterXFill } from 'react-icons/ri';
 
 export const metadata = {
   title: 'Research Corridor',
@@ -52,7 +52,7 @@ export const navbar = {
     },
     {
       title: 'Researchers',
-      icon: PiListMagnifyingGlass,
+      icon: LuUserRoundSearch,
       url: '/researchers',
     },
     {
@@ -81,19 +81,19 @@ export const dashboardSidebar = {
       url: '/',
     },
     {
-      title: 'Events',
-      icon: PiCalendarCheck,
-      url: '/events',
-    },
-    {
-      title: 'Submissions',
-      icon: IoNewspaperOutline,
-      url: '/submissions',
+      title: 'Pages',
+      icon: RiPagesLine,
+      url: '/metadata',
     },
     {
       title: 'Journals',
       icon: PiNewspaper,
       url: '/journals',
+    },
+    {
+      title: 'Events',
+      icon: PiCalendarCheck,
+      url: '/events',
     },
     {
       title: 'Collaborations',
@@ -102,13 +102,13 @@ export const dashboardSidebar = {
     },
     {
       title: 'Researchers',
-      icon: PiListMagnifyingGlass,
+      icon: LuUserRoundSearch,
       url: '/researchers',
     },
     {
-      title: 'Meta Data',
-      icon: MdScreenSearchDesktop,
-      url: '/metadata',
+      title: 'Submissions',
+      icon: IoNewspaperOutline,
+      url: '/submissions',
     },
     {
       title: 'Emails',
@@ -160,7 +160,7 @@ export const footer = {
         },
         {
           title: 'Researchers',
-          icon: PiListMagnifyingGlass,
+          icon: LuUserRoundSearch,
           url: '/researchers',
         },
         {
