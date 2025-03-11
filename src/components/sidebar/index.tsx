@@ -3,6 +3,7 @@
 import { Button, cn, Tooltip } from '@heroui/react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { IconType } from 'react-icons/lib';
 
 import { dashboardSidebar as textData } from '@/constant/site-config.text';
 import useDashboardState from '@/context/dashboard-state';
@@ -10,40 +11,45 @@ import useDashboardState from '@/context/dashboard-state';
 const Sidebar = () => {
   const pathname = usePathname();
   const { SidebarOpen } = useDashboardState();
+  const isActive = (url: string) => {
+    if (url === '/dashboard') {
+      return pathname === '/dashboard';
+    }
+    return pathname.includes(url);
+  };
   return (
-    <aside className="">
-      <nav className="flex flex-col gap-2 p-4">
-        {textData?.menu?.map((item, index) => (
-          <Tooltip
-            key={index}
-            color="primary"
-            content={item.title}
-            placement="right"
-            hidden={SidebarOpen}
-            delay={0}
-            showArrow
-            shouldFlip
-          >
-            <Button
-              as={Link}
-              href={`/dashboard${item.url}`}
+    <aside className=" h-body flex flex-col justify-between overflow-y-auto p-4">
+      <nav className="flex flex-col gap-2">
+        {textData?.menu?.map(
+          (
+            item: { title: string; url: string; icon: IconType },
+            index: number,
+          ) => (
+            <Tooltip
               key={index}
-              variant={
-                pathname === `/dashboard${item.url}`
-                  ? 'solid'
-                  : pathname === `/dashboard` && item.url === '/'
-                    ? 'solid'
-                    : 'light'
-              }
-              color="primary"
-              className={cn(SidebarOpen ? 'justify-start' : '')}
-              isIconOnly={!SidebarOpen}
+              content={item.title}
+              radius="sm"
+              placement="right"
+              hidden={SidebarOpen}
+              showArrow
+              shouldFlip
             >
-              <item.icon className="text-xl" />
-              {SidebarOpen && item.title}
-            </Button>
-          </Tooltip>
-        ))}
+              <Button
+                as={Link}
+                href={`/dashboard${item.url}`}
+                key={index}
+                variant={isActive(item.url) ? 'flat' : 'light'}
+                size="lg"
+                radius="sm"
+                className={cn(SidebarOpen ? 'justify-start' : '')}
+                isIconOnly={!SidebarOpen}
+              >
+                <item.icon className="text-primary text-xl" />
+                {SidebarOpen && item.title}
+              </Button>
+            </Tooltip>
+          ),
+        )}
       </nav>
     </aside>
   );

@@ -41,11 +41,6 @@ export const navbar = {
   },
   navItems: [
     {
-      title: 'Events',
-      icon: PiCalendarCheck,
-      url: '/events',
-    },
-    {
       title: 'Collaborations',
       icon: PiHandshake,
       url: '/collaborations',
@@ -86,19 +81,24 @@ export const dashboardSidebar = {
       url: '/',
     },
     {
+      title: 'Events',
+      icon: PiCalendarCheck,
+      url: '/events',
+    },
+    {
       title: 'Submissions',
       icon: IoNewspaperOutline,
       url: '/submissions',
     },
     {
-      title: 'Collaborations',
-      icon: PiHandshake,
-      url: '/collaborations',
-    },
-    {
       title: 'Journals',
       icon: PiNewspaper,
       url: '/journals',
+    },
+    {
+      title: 'Collaborations',
+      icon: PiHandshake,
+      url: '/collaborations',
     },
     {
       title: 'Researchers',

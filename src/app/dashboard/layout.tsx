@@ -17,11 +17,11 @@ export async function generateMetadata(): Promise<Metadata> {
 export default function DashboardLayout({ children }: PropsWithChildren) {
   return (
     <DashboardProviders>
-      <div id="dashboard" className="select-none">
+      <div id="dashboard" className="text-foreground-900 select-none bg-white">
         <DashboardNavbar />
-        <div className="flex">
+        <div className="border-foreground-300 flex border-t">
           <Sidebar />
-          <main className="relative mb-5 mr-5 h-[calc(100vh-85px)] flex-1 overflow-auto rounded-2xl bg-white shadow-lg">
+          <main className="border-foreground-300 relative h-[calc(100vh-85px)] flex-1 overflow-auto border-l">
             {children}
           </main>
         </div>
