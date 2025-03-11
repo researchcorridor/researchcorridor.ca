@@ -12,9 +12,7 @@ const Sidebar = () => {
   const pathname = usePathname();
   const { SidebarOpen } = useDashboardState();
   const isActive = (url: string) => {
-    if (url === '/dashboard') {
-      return pathname === '/dashboard';
-    }
+    if (url === '/') return pathname === '/dashboard';
     return pathname.includes(url);
   };
   return (
