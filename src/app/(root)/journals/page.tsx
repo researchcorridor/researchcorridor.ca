@@ -1,5 +1,5 @@
-import ComingSoon from '@/components/ui/coming-soon';
+import { redirect } from 'next/navigation';
 
 export default function JournalsPage() {
-  return <ComingSoon page="journals" />;
+  redirect('https://researchcorridor.org/');
 }
