@@ -108,7 +108,7 @@ export default function EventsRootSection({
               <span className="text-primary">{ConferenceDate}</span>
             </h3>
             <h3 className="flex flex-wrap gap-2 text-lg">
-              Abstract Submission:
+              Full Paper Submission Deadline:
               <span className="text-primary">{AbstractSubmission}</span>
             </h3>
             <div className="justify-center max-sm:flex max-sm:w-full">
